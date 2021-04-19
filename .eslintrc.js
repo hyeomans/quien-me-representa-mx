@@ -19,6 +19,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:node/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
@@ -38,4 +39,4 @@ module.exports = {
       },
     ],
   },
-};
+}
