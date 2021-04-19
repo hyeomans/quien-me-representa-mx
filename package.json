@@ -1,0 +1,22 @@
+{
+  "name": "quien-me-representa-mx",
+  "version": "0.1.0",
+  "author": {
+    "name": "Hector Yeomans",
+    "url": "https://hyeomans.com"
+  },
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node src/server.js",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node src/server.js"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3",
+    "express": "4.17.1",
+    "next": "10.1.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}
