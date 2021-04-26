@@ -9,11 +9,11 @@ const typeDefs = gql`
   }
 
   type Representantes {
-    diputacionLocal: Representante!
-    diputacionFederal: Representante!
-    presidenciaMunicipal: Representante!
-    gobernante: Representante!
-    senadores: [Representante]!
+    diputacionLocal: Representante
+    diputacionFederal: Representante
+    presidenciaMunicipal: Representante
+    gobernante: Representante
+    senadores: [Representante]
   }
 
   type LocacionInfo {
@@ -43,20 +43,20 @@ const resolvers = ({ db, st }) => {
         const location = st.geographyFromText(`POINT(${longitud} ${latitud})`)
         const seccion = await db
           .table('secciones')
-          .innerJoin('estados', 'estados.id', 'secciones.estado')
+          .innerJoin('estados', 'estados.numero_entidad', 'secciones.numero_entidad')
           .innerJoin('municipios', function () {
-            this.on('secciones.municipio', '=', 'municipios.municipio').andOn(
-              'secciones.estado',
+            this.on('secciones.numero_municipio', '=', 'municipios.numero_municipio').andOn(
+              'secciones.numero_entidad',
               '=',
-              'municipios.estado',
+              'municipios.numero_entidad',
             )
           })
           .orderByRaw(`secciones.geom <-> ${location}`)
           .select([
-            'estados.nombre as estado',
-            'secciones.estado as estado_id',
-            'municipios.nombre as municipio',
-            'secciones.municipio as municipio_id',
+            'estados.nombre             as estado',
+            'secciones.numero_entidad   as estado_id',
+            'municipios.nombre          as municipio',
+            'secciones.numero_municipio as municipio_id',
             'secciones.seccion',
             'secciones.distrito_federal',
             'secciones.distrito_local',
@@ -64,6 +64,27 @@ const resolvers = ({ db, st }) => {
           ])
           .limit(1)
           .first()
+
+        // TODO: Better message frontend
+        if (seccion['st_distance'] != 0) {
+          return {
+            info: {
+              latitud,
+              longitud,
+              estado: 'No se encuentra en México',
+              municipio: 'No se encuentra en México',
+              distritoLocal: 0,
+              distritoFederal: 0,
+            },
+            representantes: {
+              diputacionLocal: null,
+              diputacionFederal: null,
+              presidenciaMunicipal: null,
+              gobernante: null,
+              senadores: [],
+            },
+          }
+        }
 
         const {
           estado_id: estadoId,
@@ -104,6 +125,7 @@ const resolvers = ({ db, st }) => {
             'diputacion_federal.distrito_federal',
           )
           .where('diputacion_federal.distrito_federal', distritoFederal)
+          .andWhere('diputacion_federal.numero_entidad', estadoId)
           .first()
 
         const municipioP = db

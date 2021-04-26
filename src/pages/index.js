@@ -40,6 +40,40 @@ const QUERY = gql`
   }
 `
 
+const PuestoPolitico = ({ puestoPolitico, mensajeNoExiste }) => {
+  if (!puestoPolitico) {
+    return <p>{mensajeNoExiste}</p>
+  }
+
+  return (
+    <>
+      <p>
+        Nombre: <span>{puestoPolitico.nombre}</span>
+      </p>
+      <p>
+        Período: <span>{puestoPolitico.periodo}</span>
+      </p>
+    </>
+  )
+}
+
+const Senadores = ({ senadores }) => {
+  if (!senadores || senadores.length === 0) {
+    return <p>Aun no tengo información de los senadores de este estado</p>
+  }
+
+  return senadores.map((s) => (
+    <div key={s.nombre}>
+      <p>
+        Nombre: <span>{s.nombre}</span>
+      </p>
+      <p>
+        Período: <span>{s.periodo}</span>
+      </p>
+    </div>
+  ))
+}
+
 const Informacion = ({ data }) => {
   if (data.status === 'pristine') {
     return null
@@ -70,6 +104,7 @@ const Informacion = ({ data }) => {
   const {
     data: {
       locacion: {
+        info,
         representantes: {
           diputacionLocal,
           diputacionFederal,
@@ -84,57 +119,61 @@ const Informacion = ({ data }) => {
   return (
     <div>
       <div className="mb-2 pb-2 border-b-2 space-y-1">
+        <h2 className="text-xl">Información del punto en el mapa</h2>
+        <p>
+          Distrito Local: <span>{info.distritoLocal}</span>
+        </p>
+        <p>
+          Distrito Federal: <span>{info.distritoFederal}</span>
+        </p>
+        <p>
+          Municipio: <span>{info.municipio}</span>
+        </p>
+        <p>
+          Estado: <span>{info.estado}</span>
+        </p>
+        <p>
+          Latitud: <span>{info.latitud}</span>
+        </p>
+        <p>
+          Longitud: <span>{info.longitud}</span>
+        </p>
+      </div>
+      <div className="mb-2 pb-2 border-b-2 space-y-1">
         <h2 className="text-xl">Presidencia Municipal</h2>
-        <p>
-          Nombre: <span>{presidenciaMunicipal.nombre}</span>
-        </p>
-        <p>
-          Período: <span>{presidenciaMunicipal.periodo}</span>
-        </p>
+        <PuestoPolitico
+          puestoPolitico={presidenciaMunicipal}
+          mensajeNoExiste="Aun no tengo información de la presidencia municipal de este municipio"
+        />
       </div>
 
       <div className="mb-2 pb-2 border-b-2 space-y-1">
         <h2 className="text-xl">Diputación Local</h2>
-        <p>
-          Nombre: <span>{diputacionLocal.nombre}</span>
-        </p>
-        <p>
-          Período: <span>{diputacionLocal.periodo}</span>
-        </p>
+        <PuestoPolitico
+          puestoPolitico={diputacionLocal}
+          mensajeNoExiste="Aun no tengo información de la diputación local para este distrito"
+        />
       </div>
 
       <div className="mb-2 pb-2 border-b-2 space-y-1">
         <h2 className="text-xl">Diputación federal</h2>
-        <p>
-          Nombre: <span>{diputacionFederal.nombre}</span>
-        </p>
-        <p>
-          Período: <span>{diputacionFederal.periodo}</span>
-        </p>
+        <PuestoPolitico
+          puestoPolitico={diputacionFederal}
+          mensajeNoExiste="Aun no tengo información de la diputación federal para este distrito"
+        />
       </div>
 
       <div className="mb-2 pb-2 border-b-2 space-y-1">
         <h2 className="text-xl">Gobernación</h2>
-        <p>
-          Nombre: <span>{gobernante.nombre}</span>
-        </p>
-        <p>
-          Período: <span>{gobernante.periodo}</span>
-        </p>
+        <PuestoPolitico
+          puestoPolitico={gobernante}
+          mensajeNoExiste="Aun no tengo información del gobernante del estado"
+        />
       </div>
 
       <div className="mb-2 pb-2 border-b-2 space-y-1">
         <h2 className="text-xl">Senadores</h2>
-        {senadores.map((s) => (
-          <div key={s.nombre}>
-            <p>
-              Nombre: <span>{s.nombre}</span>
-            </p>
-            <p>
-              Período: <span>{s.periodo}</span>
-            </p>
-          </div>
-        ))}
+        <Senadores senadores={senadores} />
       </div>
     </div>
   )
@@ -212,7 +251,7 @@ export default function Home() {
         </p>
 
         <Map
-          className="h-72 w-full mb-2"
+          className="h-72 w-full mb-2 lg:h-96"
           center={[23.681406310669356, -103.31439396326121]}
           zoom={4}
           scrollWheelZoom={true}>

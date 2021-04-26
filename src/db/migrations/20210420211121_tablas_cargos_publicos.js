@@ -2,9 +2,7 @@ exports.up = function (knex) {
   return knex.schema.raw(`
   create table diputacion_federal
   (
-    id serial not null
-      constraint diputacion_federal_pk
-        primary key,
+    id serial not null constraint diputacion_federal_pk primary key,
     actor_politico_id uuid not null,
     periodo daterange not null,
     distrito_federal integer not null
@@ -12,9 +10,7 @@ exports.up = function (knex) {
   
   create table diputacion_local
   (
-    id serial not null
-      constraint diputacion_local_pk
-        primary key,
+    id serial not null constraint diputacion_local_pk primary key,
     actor_politico_id uuid not null,
     periodo daterange not null,
     distrito_local integer not null,
@@ -31,9 +27,7 @@ exports.up = function (knex) {
 
   create table presidencia_municipal
   (
-    id serial not null
-      constraint table_name_pk
-        primary key,
+    id serial not null constraint table_name_pk primary key,
     actor_politico_id uuid not null,
     periodo daterange not null,
     municipio_id integer not null,
@@ -42,9 +36,7 @@ exports.up = function (knex) {
 
   create table if not exists senadurias
   (
-    id serial not null
-      constraint senadurias_pk
-        primary key,
+    id serial not null constraint senadurias_pk primary key,
     actor_politico_id uuid not null,
     periodo daterange not null,
     estado integer not null
