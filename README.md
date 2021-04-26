@@ -74,3 +74,20 @@ Running seed files:
 ```
 > npx knex seed:run
 ```
+
+
+## Data
+
+Gobernadores:
+https://www.conago.org.mx/gobernadores
+
+Senadores:
+https://www.senado.gob.mx/64/senadores/directorio_de_senadores
+
+Diputados federales:
+http://sitl.diputados.gob.mx/LXIV_leg/listado_diputados_gpnp.php?tipot=TOTAL
+
+Municipios:
+http://www.snim.rami.gob.mx/
+
+Diputaciones locales(?)

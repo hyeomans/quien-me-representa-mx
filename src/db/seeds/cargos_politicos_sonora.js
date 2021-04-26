@@ -26,8 +26,8 @@ exports.seed = async function (knex) {
     from actores_politicos
     where nombre_formatted = 'fermin gonzalez gaxiola';
     
-    insert into diputacion_federal(actor_politico_id, periodo, distrito_federal)
-    select id, '[2018-11-01,2021-09-01)'::daterange, 5
+    insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad)
+    select id, '[2018-11-01,2021-09-01)'::daterange, 5, 26
     from actores_politicos
     where nombre_formatted = 'maria wendy briceno zuloaga';
     
