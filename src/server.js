@@ -5,8 +5,10 @@ const knexPostgis = require('knex-postgis')
 const compression = require('compression')
 const helmet = require('helmet')
 const cors = require('cors')
+const pino = require('pino')
 
 const graphqlServer = require('./graphql')
+const logger = pino()
 
 // Make sure to set this on package.json script because
 // Next only loads env variables after calling `prepare()`
@@ -69,7 +71,7 @@ nextApp.prepare().then(() => {
 
   expressServer.listen(config.web.port, (err) => {
     if (err) throw err
-    console.log(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
-    console.log(`> Ready on http://localhost:${config.web.port}`)
+    logger.info(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
+    logger.info(`> Ready on http://localhost:${config.web.port}`)
   })
 })
