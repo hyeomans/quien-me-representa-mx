@@ -1,38 +1,65 @@
 const express = require('express')
 const next = require('next')
-const graphqlServer = require('./graphql')
 const knex = require('knex')
 const knexPostgis = require('knex-postgis')
+const compression = require('compression')
+const helmet = require('helmet')
+const cors = require('cors')
 
-const port = parseInt(process.env.PORT, 10) || 3000
+const graphqlServer = require('./graphql')
+
+// Make sure to set this on package.json script because
+// Next only loads env variables after calling `prepare()`
+const nodeEnv = process.env.NODE_ENV
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
 
 const handle = nextApp.getRequestHandler()
 
 nextApp.prepare().then(() => {
-  const expressServer = express()
-  const db = knex({
-    client: 'pg',
-    connection: {
+  //Next prepare loads environment variables
+  const config = {
+    web: {
+      port: process.env.NODE_PORT,
+    },
+    db: {
       host: process.env.POSTGRES_HOST,
       user: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       port: process.env.POSTGRES_PORT,
       database: process.env.POSTGRES_DB,
+      debug: process.env.KNEX_DEGUB === 'true',
+    },
+  }
+
+  const db = knex({
+    client: 'pg',
+    connection: {
+      host: config.db.host,
+      user: config.db.user,
+      password: config.db.password,
+      port: config.db.port,
+      database: config.db.database,
     },
     useNullAsDefault: true,
-    debug: process.env.KNEX_DEGUB === 'true',
+    debug: config.db.debug,
   })
   const st = knexPostgis(db)
 
-  expressServer.get('/a', (req, res) => {
-    return nextApp.render(req, res, '/a', req.query)
-  })
+  const expressServer = express()
+  if (nodeEnv === 'production') {
+    expressServer.set('trust proxy', 1) // trust first proxy
+  }
 
-  expressServer.get('/b', (req, res) => {
-    return nextApp.render(req, res, '/b', req.query)
-  })
+  expressServer.use(
+    helmet({ contentSecurityPolicy: false }),
+    compression(),
+    cors({
+      origin: [`http://localhost:${config.web.port}`],
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+    }),
+  )
 
   graphqlServer({ expressServer, db, st })
 
@@ -40,9 +67,9 @@ nextApp.prepare().then(() => {
     return handle(req, res)
   })
 
-  expressServer.listen(port, (err) => {
+  expressServer.listen(config.web.port, (err) => {
     if (err) throw err
-    console.log(`> Graphql endpoint ready on: http://localhost:${port}/graphql`)
-    console.log(`> Ready on http://localhost:${port}`)
+    console.log(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
+    console.log(`> Ready on http://localhost:${config.web.port}`)
   })
 })
