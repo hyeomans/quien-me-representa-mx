@@ -85,3 +85,4 @@ scraping/senado/senadores.txt
 scraping/senado/senadores.veracruz.json
 scraping/senado/senadores.yucatan.json
 scraping/senado/senadores.zacatecas.json
+scraping/gobernadores/sql.txt
