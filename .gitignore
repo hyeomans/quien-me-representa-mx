@@ -28,3 +28,60 @@ yarn-error.log*
 
 # env
 .env
+
+
+## The migrations can be ignored now. They already seeded the database and we should not rollback at this moment
+src/db/migrations/20210420165130_create_estados_table.js
+src/db/migrations/20210420165132_create_secciones_table.js
+src/db/migrations/20210420165440_create_municipios_table.js
+src/db/migrations/20210420184323_actores_politicos_table.js
+src/db/migrations/20210420211121_tablas_cargos_publicos.js
+src/db/migrations/20210426150911_recreate_estados.js
+src/db/migrations/20210426173633_add_map_estados.js
+src/db/migrations/20210426175644_recreate_municipios.js
+src/db/migrations/20210426180215_add_map_municipios.js
+src/db/migrations/20210426183430_recreate_secciones.js
+src/db/migrations/20210426183503_add_map_secciones_1_to_8_entidades.js
+src/db/migrations/20210426184416_add_map_secciones_9_to_11_entidades.js
+src/db/migrations/20210426184531_add_map_secciones_12_to_15_entidades.js
+src/db/migrations/20210426184956_add_map_secciones_16_to_20_entidades.js
+src/db/migrations/20210426185134_add_map_secciones_21_to_25_entidades.js
+src/db/migrations/20210426185314_add_map_secciones_26_to_30_entidades.js
+src/db/migrations/20210426185414_add_map_secciones_31_to_32_entidades.js
+src/db/migrations/20210426210028_add_estado_to_diputacion_federal.js
+src/db/migrations/20210426223327_add_unaccent_extension.js
+
+## SQL
+scraping/senado/senadores.aguascalientes.json
+scraping/senado/senadores.baja california sur.json
+scraping/senado/senadores.baja california.json
+scraping/senado/senadores.campeche.json
+scraping/senado/senadores.chiapas.json
+scraping/senado/senadores.chihuahua.json
+scraping/senado/senadores.ciudad de mexico.json
+scraping/senado/senadores.coahuila.json
+scraping/senado/senadores.colima.json
+scraping/senado/senadores.durango.json
+scraping/senado/senadores.guanajuato.json
+scraping/senado/senadores.guerrero.json
+scraping/senado/senadores.hidalgo.json
+scraping/senado/senadores.jalisco.json
+scraping/senado/senadores.mexico.json
+scraping/senado/senadores.michoacan.json
+scraping/senado/senadores.morelos.json
+scraping/senado/senadores.nayarit.json
+scraping/senado/senadores.nuevo leon.json
+scraping/senado/senadores.oaxaca.json
+scraping/senado/senadores.puebla.json
+scraping/senado/senadores.queretaro.json
+scraping/senado/senadores.quintana roo.json
+scraping/senado/senadores.san luis potosi.json
+scraping/senado/senadores.sinaloa.json
+scraping/senado/senadores.sonora.json
+scraping/senado/senadores.tabasco.json
+scraping/senado/senadores.tamaulipas.json
+scraping/senado/senadores.tlaxcala.json
+scraping/senado/senadores.txt
+scraping/senado/senadores.veracruz.json
+scraping/senado/senadores.yucatan.json
+scraping/senado/senadores.zacatecas.json

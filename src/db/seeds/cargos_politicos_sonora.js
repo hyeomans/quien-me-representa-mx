@@ -1,7 +1,5 @@
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('actores_politicos').del()
-  await knex('senadurias').del()
   await knex('presidencia_municipal').del()
   await knex('gobernacion').del()
   await knex('diputacion_local').del()
@@ -9,15 +7,24 @@ exports.seed = async function (knex) {
 
   await knex.schema.raw(`
   insert into actores_politicos (nombre, puesto, img_url, created_at)
-  values  
-    ('María Wendy Briceño Zuloaga', 'Diputada federal distrito 5', 'http://sil.gobernacion.gob.mx/Archivos/Fotos/9223273.jpg', '2021-04-20 20:17:41.460496'),
-    ('Heriberto Marcelo Aguilar Castillo', 'Diputado federal distrito 4', 'http://sil.gobernacion.gob.mx/Archivos/Fotos/9223271.jpg', '2021-04-20 20:17:41.460496'),
-    ('Yumiko Yerania Palomarez Herrera', 'Diputada local distrito 10 Hermosillo', 'http://www.congresoson.gob.mx/Images/fotos_dip/dip_229.jpg', '2021-04-20 20:24:23.681184'),
-    ('Fermín González Gaxiola', 'Presidente municipal Hermosillo', 'http://directorio.sonora.gob.mx/uploads/fotos/SIND._HILLO.jpg', '2021-04-20 20:24:23.681184'),
-    ('Claudia Artemiza Pavlovich Arellano', 'Gobernadora de Sonora', 'https://www.sonora.gob.mx/media/zoo/images/gobernadora-pavlovich_9bccf1d3159617ad264d09762a0e613f.png', '2021-04-20 20:24:23.681184'),
-    ('Arturo Bours Griffith', 'Senador Sonora', 'https://www.senado.gob.mx/64/images/senadores/64/1184-bours_griffith_arturo-20181108-141650.jpg', '2021-04-20 20:26:39.890457'),
-    ('Lilly Téllez', 'Senadora Sonora', 'https://www.senado.gob.mx/64/images/senadores/64/1187-tellez_garcia_maria_lilly_del_carmen-20180824-095507.jpg', '2021-04-20 20:26:39.890457'),
-    ('Sylvana Beltrones Sánchez', 'Senadora Sonora', 'https://www.senado.gob.mx/64/images/senadores/64/1189-beltrones_sanchez_sylvana-20180828-191841.jpg', '2021-04-20 20:26:39.890457');
+  values ('María Wendy Briceño Zuloaga', 'Diputada federal distrito 5', 'http://sil.gobernacion.gob.mx/Archivos/Fotos/9223273.jpg', '2021-04-20 20:17:41.460496')
+  ON CONFLICT DO NOTHING;
+
+  insert into actores_politicos (nombre, puesto, img_url, created_at)
+  values ('Heriberto Marcelo Aguilar Castillo', 'Diputado federal distrito 4', 'http://sil.gobernacion.gob.mx/Archivos/Fotos/9223271.jpg', '2021-04-20 20:17:41.460496')
+  ON CONFLICT DO NOTHING;
+
+  insert into actores_politicos (nombre, puesto, img_url, created_at)
+  values ('Yumiko Yerania Palomarez Herrera', 'Diputada local distrito 10 Hermosillo', 'http://www.congresoson.gob.mx/Images/fotos_dip/dip_229.jpg', '2021-04-20 20:24:23.681184')
+  ON CONFLICT DO NOTHING;
+
+  insert into actores_politicos (nombre, puesto, img_url, created_at)
+  values ('Fermín González Gaxiola', 'Presidente municipal Hermosillo', 'http://directorio.sonora.gob.mx/uploads/fotos/SIND._HILLO.jpg', '2021-04-20 20:24:23.681184')
+  ON CONFLICT DO NOTHING;
+
+  insert into actores_politicos (nombre, puesto, img_url, created_at)
+  values ('Claudia Artemiza Pavlovich Arellano', 'Gobernadora de Sonora', 'https://www.sonora.gob.mx/media/zoo/images/gobernadora-pavlovich_9bccf1d3159617ad264d09762a0e613f.png', '2021-04-20 20:24:23.681184')
+  ON CONFLICT DO NOTHING;
   `)
 
   await knex.schema.raw(`
