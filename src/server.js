@@ -4,7 +4,6 @@ const knex = require('knex')
 const knexPostgis = require('knex-postgis')
 const compression = require('compression')
 const helmet = require('helmet')
-const cors = require('cors')
 const pino = require('pino')
 
 const graphqlServer = require('./graphql')
@@ -53,15 +52,7 @@ nextApp.prepare().then(() => {
     expressServer.set('trust proxy', 1) // trust first proxy
   }
 
-  expressServer.use(
-    helmet({ contentSecurityPolicy: false }),
-    compression(),
-    cors({
-      origin: [`http://localhost:${config.web.port}`],
-      methods: ['GET', 'POST'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
-    }),
-  )
+  expressServer.use(helmet({ contentSecurityPolicy: false }), compression())
 
   graphqlServer({ expressServer, db, st })
 

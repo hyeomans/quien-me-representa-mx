@@ -3,11 +3,12 @@ FROM node:14
 WORKDIR /app
 
 COPY *.json /app/
+COPY *.lock /app/
 
-RUN npm install
+RUN yarn install
 COPY . /app/
-RUN npm run build
+RUN yarn build
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

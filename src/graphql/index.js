@@ -40,7 +40,7 @@ const resolvers = ({ db, st }) => {
     Query: {
       locacion: async (parent, { latitud, longitud }) => {
         //TODO: Handle errors
-        const location = st.geographyFromText(`POINT(${longitud} ${latitud})`)
+        const location = st.geomFromText(`POINT(${longitud} ${latitud})`, 4326)
         const seccion = await db
           .table('secciones')
           .innerJoin('estados', 'estados.numero_entidad', 'secciones.numero_entidad')
