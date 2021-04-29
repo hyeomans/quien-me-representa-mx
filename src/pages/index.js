@@ -145,40 +145,44 @@ export default function Home() {
   const [position, setPosition] = useState(null)
 
   return (
-    <div className=" bg-gray-100">
-      <Nav />
-      <main className="flex flex-col items-center justify-center flex-1 px-5 bg-gray-100">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span className="block">¿Quiénes son mis representantes políticos?</span>
-            <span className="block text-indigo-600">Busca tu ubicación y da click en el mapa.</span>
-          </h2>
-        </div>
+    <div className="h-screen bg-gray-100 flex flex-col justify-between">
+      <div>
+        <Nav />
+        <main className="flex flex-col items-center justify-center flex-1 px-5 bg-gray-100">
+          <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <span className="block">¿Quiénes son mis representantes políticos?</span>
+              <span className="block text-indigo-600">
+                Busca tu ubicación y da click en el mapa.
+              </span>
+            </h2>
+          </div>
 
-        <Map
-          className="h-72 w-full mb-2 lg:h-96"
-          center={[23.681406310669356, -103.31439396326121]}
-          zoom={4}
-          scrollWheelZoom={true}>
-          {({ TileLayer, Marker, useMapEvents }) => (
-            <>
-              <TileLayer
-                url={`https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png`}
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              />
-              <LocationMarker
-                Marker={Marker}
-                useMapEvents={useMapEvents}
-                position={position}
-                setPosition={setPosition}
-                setData={setData}
-              />
-            </>
-          )}
-        </Map>
+          <Map
+            className="h-72 w-full mb-2 lg:h-96"
+            center={[23.681406310669356, -103.31439396326121]}
+            zoom={4}
+            scrollWheelZoom={true}>
+            {({ TileLayer, Marker, useMapEvents }) => (
+              <>
+                <TileLayer
+                  url={`https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png`}
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <LocationMarker
+                  Marker={Marker}
+                  useMapEvents={useMapEvents}
+                  position={position}
+                  setPosition={setPosition}
+                  setData={setData}
+                />
+              </>
+            )}
+          </Map>
 
-        <Informacion data={data} />
-      </main>
+          <Informacion data={data} />
+        </main>
+      </div>
       <Footer />
     </div>
   )
