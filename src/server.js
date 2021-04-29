@@ -42,6 +42,12 @@ nextApp.prepare().then(() => {
       port: config.db.port,
       database: config.db.database,
     },
+    pool: {
+      min: 0,
+      max: 5,
+      acquireTimeoutMillis: 60000,
+      idleTimeoutMillis: 600000,
+    },
     useNullAsDefault: true,
     debug: config.db.debug,
   })
