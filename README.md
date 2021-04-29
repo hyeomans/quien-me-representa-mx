@@ -3,7 +3,7 @@
 # WIP
 This is a work in progress.
 
-![](https://user-images.githubusercontent.com/312799/115754075-b556ae00-a350-11eb-9875-eb73d407b00c.gif)
+https://www.quienmerepresenta.com.mx/
 
 ## Running the app locally
 
