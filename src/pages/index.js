@@ -149,8 +149,8 @@ export default function Home() {
       <div>
         <Nav />
         <main className="flex flex-col items-center justify-center flex-1 px-5 bg-gray-100">
-          <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 className="text-lg font-extrabold tracking-tight text-gray-900 sm:text-2xl lg:text-4xl">
               <span className="block">¿Quiénes son mis representantes políticos?</span>
               <span className="block text-indigo-600">
                 Busca tu ubicación y da click en el mapa.
@@ -166,7 +166,7 @@ export default function Home() {
             {({ TileLayer, Marker, useMapEvents }) => (
               <>
                 <TileLayer
-                  url={`https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png`}
+                  url={'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 />
                 <LocationMarker
