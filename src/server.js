@@ -62,6 +62,13 @@ nextApp.prepare().then(() => {
 
   expressServer.listen(config.web.port, (err) => {
     if (err) throw err
+    logger.info({
+      msg: 'Environment variables',
+      db_host: process.env.POSTGRES_HOST,
+      web_port: process.env.NODE_PORT,
+      node_env: process.env.NODE_ENV,
+      ga_id: process.env.NEXT_PUBLIC_GA_ID,
+    })
     logger.info(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
     logger.info(`> Ready on http://localhost:${config.web.port}`)
   })
