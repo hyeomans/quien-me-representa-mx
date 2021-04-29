@@ -1,0 +1,105 @@
+const PuntoEnElMapa = ({ info, representantes }) => {
+  console.log(representantes)
+  return (
+    <div className="bg-indigo-50 shadow overflow-hidden sm:rounded-lg">
+      <div className="px-4 py-5 sm:px-6">
+        <h3 className="text-lg leading-6 font-medium text-gray-900">
+          Información del punto en el mapa
+        </h3>
+        {info.distritoFederal !== 0 ? (
+          <>
+            <p className="mt-1 max-w-2xl text-sm text-gray-500">Municipio: {info.municipio}</p>
+            <p className="mt-1 max-w-2xl text-sm text-gray-500">Estado: {info.estado}</p>
+          </>
+        ) : null}
+      </div>
+      <div className="border-t border-gray-200">
+        <dl>
+          {info.distritoFederal === 0 ? (
+            <>
+              <div className="bg-gray-50 px-4 py-5">
+                <dt className="text-sm font-medium text-gray-500">
+                  Punto no se encuentra en México
+                </dt>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Distrito Local</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {info.distritoLocal}
+                </dd>
+              </div>
+              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Distrito Federal</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {info.distritoFederal}
+                </dd>
+              </div>
+              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Gobierno estatal</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {representantes.gobernante.nombre}
+                </dd>
+              </div>
+
+              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Senadores</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
+                    {representantes.senadores.map((senador) => (
+                      <li
+                        className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                        key={senador.nombre}>
+                        <div className="w-0 flex-1 flex items-center">
+                          <span className="ml-2 flex-1 w-0 truncate">{senador.nombre}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+
+              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Diputación federal</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {representantes.diputacionFederal
+                    ? representantes.diputacionFederal.nombre
+                    : 'Aun no tengo información de la diputación federal para este distrito'}
+                </dd>
+              </div>
+
+              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Presidencia municipal</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {representantes.presidenciaMunicipal
+                    ? representantes.presidenciaMunicipal.nombre
+                    : 'Aun no tengo información de la presidencia municipal para este municipio'}
+                </dd>
+              </div>
+
+              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">Diputación local</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {representantes.diputacionLocal
+                    ? representantes.diputacionLocal.nombre
+                    : 'Aun no tengo información de la diputación local para este distrito'}
+                </dd>
+              </div>
+
+              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-xs font-medium text-gray-500">Latitud/Longitud</dt>
+                <dd className="mt-1 text-xs text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                  {info.latitud}/{info.longitud}
+                </dd>
+              </div>
+            </>
+          )}
+        </dl>
+      </div>
+    </div>
+  )
+}
+
+export default PuntoEnElMapa

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import Map from '../components/Map'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
+import PuntoEnElMapa from '../components/PuntoMapaDescriptionList'
 import { useQuery, gql } from '@apollo/client'
 
 const QUERY = gql`
@@ -40,40 +43,6 @@ const QUERY = gql`
   }
 `
 
-const PuestoPolitico = ({ puestoPolitico, mensajeNoExiste }) => {
-  if (!puestoPolitico) {
-    return <p>{mensajeNoExiste}</p>
-  }
-
-  return (
-    <>
-      <p>
-        Nombre: <span>{puestoPolitico.nombre}</span>
-      </p>
-      <p>
-        Período: <span>{puestoPolitico.periodo}</span>
-      </p>
-    </>
-  )
-}
-
-const Senadores = ({ senadores }) => {
-  if (!senadores || senadores.length === 0) {
-    return <p>Aun no tengo información de los senadores de este estado</p>
-  }
-
-  return senadores.map((s) => (
-    <div key={s.nombre}>
-      <p>
-        Nombre: <span>{s.nombre}</span>
-      </p>
-      <p>
-        Período: <span>{s.periodo}</span>
-      </p>
-    </div>
-  ))
-}
-
 const Informacion = ({ data }) => {
   if (data.status === 'pristine') {
     return null
@@ -83,7 +52,7 @@ const Informacion = ({ data }) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
+        className="h-6 w-6 animate-spin"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor">
@@ -98,83 +67,34 @@ const Informacion = ({ data }) => {
   }
 
   if (data.status === 'error') {
-    return <div>error</div>
+    return (
+      <div className="rounded-md bg-red-50 p-4">
+        <div className="flex">
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              Hubó un error al tratar de localizar el punto
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Intenta dando click de nuevo en el mapa</li>
+                <li>Si no funciona, por favor contáctanos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   const {
     data: {
-      locacion: {
-        info,
-        representantes: {
-          diputacionLocal,
-          diputacionFederal,
-          senadores,
-          presidenciaMunicipal,
-          gobernante,
-        },
-      },
+      locacion: { info, representantes },
     },
   } = data
 
   return (
-    <div>
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Información del punto en el mapa</h2>
-        <p>
-          Distrito Local: <span>{info.distritoLocal}</span>
-        </p>
-        <p>
-          Distrito Federal: <span>{info.distritoFederal}</span>
-        </p>
-        <p>
-          Municipio: <span>{info.municipio}</span>
-        </p>
-        <p>
-          Estado: <span>{info.estado}</span>
-        </p>
-        <p>
-          Latitud: <span>{info.latitud}</span>
-        </p>
-        <p>
-          Longitud: <span>{info.longitud}</span>
-        </p>
-      </div>
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Presidencia Municipal</h2>
-        <PuestoPolitico
-          puestoPolitico={presidenciaMunicipal}
-          mensajeNoExiste="Aun no tengo información de la presidencia municipal de este municipio"
-        />
-      </div>
-
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Diputación Local</h2>
-        <PuestoPolitico
-          puestoPolitico={diputacionLocal}
-          mensajeNoExiste="Aun no tengo información de la diputación local para este distrito"
-        />
-      </div>
-
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Diputación federal</h2>
-        <PuestoPolitico
-          puestoPolitico={diputacionFederal}
-          mensajeNoExiste="Aun no tengo información de la diputación federal para este distrito"
-        />
-      </div>
-
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Gobernación</h2>
-        <PuestoPolitico
-          puestoPolitico={gobernante}
-          mensajeNoExiste="Aun no tengo información del gobernante del estado"
-        />
-      </div>
-
-      <div className="mb-2 pb-2 border-b-2 space-y-1">
-        <h2 className="text-xl">Senadores</h2>
-        <Senadores senadores={senadores} />
-      </div>
+    <div className="mb-5">
+      <PuntoEnElMapa info={info} representantes={representantes} />
     </div>
   )
 }
@@ -212,6 +132,9 @@ function LocationMarker({ Marker, useMapEvents, position, setPosition, setData }
   useMapEvents({
     click(e) {
       setPosition(e.latlng)
+      setData({
+        status: 'loading',
+      })
     },
   })
   return position === null ? null : <Marker position={position} />
@@ -222,33 +145,15 @@ export default function Home() {
   const [position, setPosition] = useState(null)
 
   return (
-    <div className="min-h-screen">
-      <nav className="flex items-center justify-center flex-wrap bg-indigo-400 p-3 shadow w-full mb-3">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-            />
-          </svg>
-          <span className="font-semibold text-xl ml-1">¿Quién me representa?</span>
+    <div className=" bg-gray-100">
+      <Nav />
+      <main className="flex flex-col items-center justify-center flex-1 px-5 bg-gray-100">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <span className="block">¿Quiénes son mis representantes políticos?</span>
+            <span className="block text-indigo-600">Busca tu ubicación y da click en el mapa.</span>
+          </h2>
         </div>
-      </nav>
-      <main className="flex flex-col items-center justify-center flex-1 px-5">
-        <p className="text-lg text-bold text-center mb-2">
-          Conoce a tu diputado local y federal, presidente municipal, senador y gobernador.
-        </p>
-
-        <p className="text-bold text-center">
-          Busca tu dirección en el mapa y da click en tu casa:
-        </p>
 
         <Map
           className="h-72 w-full mb-2 lg:h-96"
@@ -274,6 +179,7 @@ export default function Home() {
 
         <Informacion data={data} />
       </main>
+      <Footer />
     </div>
   )
 }
