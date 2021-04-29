@@ -54,7 +54,7 @@ nextApp.prepare().then(() => {
 
   expressServer.use(helmet({ contentSecurityPolicy: false }), compression())
 
-  graphqlServer({ expressServer, db, st })
+  graphqlServer({ expressServer, db, st, logger })
 
   expressServer.all('*', (req, res) => {
     return handle(req, res)
