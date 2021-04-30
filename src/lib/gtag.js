@@ -1,7 +1,7 @@
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url) => {
   if (process.env.NODE_ENV === 'production') {
-    window.gtag('config', 'NFWHZSCWQK', {
+    window.gtag('config', 'G-5DWQGW28T7', {
       page_path: url,
     })
   }
