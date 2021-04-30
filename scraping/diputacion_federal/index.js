@@ -7,6 +7,7 @@ const writeFile = promisify(fs.writeFile)
 // const readFile = promisify(fs.readFile)
 const entidades = require('./entidades')
 const { promises: Fs } = require('fs')
+const Promise = require('bluebird')
 
 async function exists(path) {
   try {
@@ -84,19 +85,16 @@ function main() {
     .then((r) => {
       const allPromises = []
 
-      for (let index = 1; index <= 32; index++) {
+      //TODO: I can't run all states
+      for (let index = 31; index <= 32; index++) {
         const element = r[index]
         const links = element.links
-        for (const link of links) {
-          allPromises.push(
-            retrieveDiputadoData({
-              link,
-              numeroEntidad: index,
-              nombreEntidad: element.nombreEntidad,
-            }),
-          )
-        }
+        allPromises.push(
+          allLinksPerEntidad({ links, numeroEntidad: index, nombreEntidad: element.nombreEntidad }),
+        )
       }
+
+      console.log('waiting for all promises')
       return Promise.all(allPromises)
     })
     .then((all) => {
@@ -104,13 +102,37 @@ function main() {
     })
 }
 
-main().then(() => console.log('done'))
+main()
+  .then(() => console.log('done'))
+  .catch(console.error)
+
+function allLinksPerEntidad({ numeroEntidad, nombreEntidad, links }) {
+  const linksLen = links.length
+  const allPromises = links.map((link) => {
+    return Promise.delay(1000).then(() =>
+      retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }),
+    )
+  })
+
+  return Promise.all(allPromises).then((allP) => {
+    const clean = allP
+      .filter((r) => r !== '')
+      .map((r) => r.trim())
+      .map((r) => r.trimStart())
+
+    return `------ Resultados para ${nombreEntidad}
+------ Total de diputados ${linksLen}
+------ Total de SQL queries ${clean.length}
+${clean.join('\n')}`
+  })
+}
 
 function retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }) {
-  console.log('cargando link', link)
   return instance
     .get(link)
-    .then((r) => cheerio.load(r.data.toString('latin1')))
+    .then((r) => {
+      return cheerio.load(r.data.toString('latin1'))
+    })
     .then(($) => {
       const nombre = $(
         'body > div > table.cajasombra > tbody > tr > td > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(1) > td > center > strong',
@@ -135,10 +157,8 @@ function retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }) {
       //TODO: No estoy agarrando diputados plurinominales
       if (entidad[0].toLowerCase().endsWith('distrito')) {
         const distrito = entidad[1].split('|')[0].trim()
-        return `
-        insert into actores_politicos (nombre, puesto, img_url, created_at) values (${nombre}, 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${numeroEntidad}', ${imgUrl}, '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
-        insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad} from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));
-        `
+        return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}', '${baseUrl}${imgUrl}', '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
+insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad} from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));`
       }
 
       return ''
