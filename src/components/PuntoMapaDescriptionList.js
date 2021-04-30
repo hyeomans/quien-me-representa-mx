@@ -65,27 +65,31 @@ const PuntoEnElMapa = ({ info, representantes }) => {
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
                   {representantes.diputacionFederal
                     ? representantes.diputacionFederal.nombre
-                    : 'Aun no tengo información de la diputación federal para este distrito'}
+                    : `Este distrito no tiene representación en el congreso federal.`}
                 </dd>
               </div>
 
-              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Presidencia municipal</dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
-                  {representantes.presidenciaMunicipal
-                    ? representantes.presidenciaMunicipal.nombre
-                    : 'Aun no tengo información de la presidencia municipal para este municipio'}
-                </dd>
-              </div>
+              {representantes.presidenciaMunicipal && (
+                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">Presidencia municipal</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                    {representantes.presidenciaMunicipal
+                      ? representantes.presidenciaMunicipal.nombre
+                      : 'Aun no tengo información de la presidencia municipal para este municipio'}
+                  </dd>
+                </div>
+              )}
 
-              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Diputación local</dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
-                  {representantes.diputacionLocal
-                    ? representantes.diputacionLocal.nombre
-                    : 'Aun no tengo información de la diputación local para este distrito'}
-                </dd>
-              </div>
+              {representantes.diputacionLocal && (
+                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">Diputación local</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 md:w-64">
+                    {representantes.diputacionLocal
+                      ? representantes.diputacionLocal.nombre
+                      : 'Aun no tengo información de la diputación local para este distrito'}
+                  </dd>
+                </div>
+              )}
 
               <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-xs font-medium text-gray-500">Latitud/Longitud</dt>
