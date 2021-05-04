@@ -125,10 +125,10 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                         href={representantes.diputacionLocal.link}
                         target="_blank"
                         rel="noopener noreferrer">
-                        <p className="text-sm font-medium text-indigo-500 hover:border-indigo-900">
+                        <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
                           {representantes.diputacionLocal.nombre}
                         </p>
-                        <p className="text-sm text-gray-500 border-b border-gray-700">
+                        <p className="text-sm text-gray-500">
                           Diputación local distrito {info.distritoLocal}
                         </p>
                       </a>
