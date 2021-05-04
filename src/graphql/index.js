@@ -129,6 +129,7 @@ const resolvers = ({ db, st, logger }) => {
               'actores_politicos.img_url as imgUrl',
               'diputacion_federal.periodo',
               'diputacion_federal.distrito_federal',
+              'diputacion_federal.link',
             )
             .where('diputacion_federal.distrito_federal', distritoFederal)
             .andWhere('diputacion_federal.numero_entidad', estadoId)

@@ -68,14 +68,30 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                       src={representantes.diputacionFederal.imgUrl}
                       alt="imagen"
                     />
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-indigo-500">
-                        {representantes.diputacionFederal.nombre}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Diputación federal distrito {info.distritoFederal}
-                      </p>
-                    </div>
+                    {representantes.diputacionFederal.link ? (
+                      <div className="ml-3">
+                        <a
+                          href={representantes.diputacionFederal.link}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
+                            {representantes.diputacionFederal.nombre}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            Diputación federal distrito {info.distritoFederal}
+                          </p>
+                        </a>
+                      </div>
+                    ) : (
+                      <div className="ml-3">
+                        <p className="text-sm font-medium text-indigo-500">
+                          {representantes.diputacionFederal.nombre}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Diputación federal distrito {info.distritoFederal}
+                        </p>
+                      </div>
+                    )}
                   </>
                 ) : (
                   <div className="ml-3">

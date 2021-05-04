@@ -72,6 +72,8 @@ function colectLinksByEntidad() {
 }
 
 function main() {
+  let i = 31
+  let f = 32
   return exists(`${process.cwd()}/scraping/diputacion_federal/links_diputados_por_entidad.json`)
     .then((fileExists) => {
       if (!fileExists) {
@@ -86,7 +88,7 @@ function main() {
       const allPromises = []
 
       //TODO: I can't run all states
-      for (let index = 31; index <= 32; index++) {
+      for (let index = i; index <= f; index++) {
         const element = r[index]
         const links = element.links
         allPromises.push(
@@ -98,7 +100,10 @@ function main() {
       return Promise.all(allPromises)
     })
     .then((all) => {
-      return writeFile(`${process.cwd()}/scraping/diputacion_federal/sql.txt`, all.join('\n'))
+      return writeFile(
+        `${process.cwd()}/scraping/diputacion_federal/${i}-${f}.sql.txt`,
+        all.join('\n'),
+      )
     })
 }
 
@@ -153,12 +158,13 @@ function retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }) {
         .attr('src')
         .replace('.', '') //replace first dot
 
+      const replacedLink = link.replace('?', '\\\\?')
       //TODO: Improve this, might break in the future
       //TODO: No estoy agarrando diputados plurinominales
       if (entidad[0].toLowerCase().endsWith('distrito')) {
         const distrito = entidad[1].split('|')[0].trim()
         return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}', '${baseUrl}${imgUrl}', '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
-insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad} from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));`
+insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad, link) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad}, '${replacedLink}' from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));`
       }
 
       return ''

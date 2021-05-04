@@ -27,6 +27,7 @@ const QUERY = gql`
         diputacionFederal {
           nombre
           imgUrl
+          link
         }
         senadores {
           nombre
