@@ -24,6 +24,7 @@ const typeDefs = gql`
     municipio: String!
     distritoLocal: Int!
     distritoFederal: Int!
+    seccion: Int!
   }
 
   type Locacion {
@@ -62,6 +63,7 @@ const resolvers = ({ db, st, logger }) => {
               'secciones.seccion',
               'secciones.distrito_federal',
               'secciones.distrito_local',
+              'secciones.seccion',
               st.distance(location, 'secciones.geom'),
             ])
             .limit(1)
@@ -77,6 +79,7 @@ const resolvers = ({ db, st, logger }) => {
                 municipio: '',
                 distritoLocal: 0,
                 distritoFederal: 0,
+                seccion: 0,
               },
               representantes: {
                 diputacionLocal: null,
@@ -184,7 +187,15 @@ const resolvers = ({ db, st, logger }) => {
           ])
 
           return {
-            info: { latitud, longitud, estado, municipio, distritoLocal, distritoFederal },
+            info: {
+              latitud,
+              longitud,
+              estado,
+              municipio,
+              distritoLocal,
+              distritoFederal,
+              seccion: seccion.seccion,
+            },
             representantes: {
               diputacionLocal,
               diputacionFederal,

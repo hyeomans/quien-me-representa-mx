@@ -15,6 +15,7 @@ const QUERY = gql`
         distritoFederal
         municipio
         estado
+        seccion
       }
 
       representantes {

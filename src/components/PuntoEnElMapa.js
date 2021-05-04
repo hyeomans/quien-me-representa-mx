@@ -31,7 +31,10 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
           ) : (
             <ul className="divide-y divide-gray-200">
               {/* Distritos */}
-              <li className="py-2 flex space-x-3 justify-center">
+              <li className="text-sm py-2 flex space-x-3 justify-center md:text-md">
+                <div className="bg-indigo-400 text-white p-2 rounded-md">
+                  Sección {info.seccion}
+                </div>
                 <div className="bg-indigo-400 text-white p-2 rounded-md">
                   Distrito local {info.distritoLocal}
                 </div>
