@@ -30,6 +30,7 @@ const QUERY = gql`
         senadores {
           nombre
           imgUrl
+          link
         }
         presidenciaMunicipal {
           nombre

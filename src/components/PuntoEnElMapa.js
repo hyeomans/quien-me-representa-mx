@@ -87,10 +87,21 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
               {representantes.senadores.map((senador) => (
                 <li key={senador.nombre} className="py-4 flex">
                   <img className="h-12 w-10 rounded-full" src={senador.imgUrl} alt="imagen" />
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-indigo-500">{senador.nombre}</p>
-                    <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
-                  </div>
+                  {senador.link ? (
+                    <div className="ml-3">
+                      <a href={senador.link} target="_blank" rel="noopener noreferrer">
+                        <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
+                          {senador.nombre}
+                        </p>
+                        <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-indigo-500">{senador.nombre}</p>
+                      <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
+                    </div>
+                  )}
                 </li>
               ))}
 
@@ -119,8 +130,8 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                     src={representantes.diputacionLocal.imgUrl}
                     alt="imagen"
                   />
-                  <div className="ml-3">
-                    {representantes.diputacionLocal.link ? (
+                  {representantes.diputacionLocal.link ? (
+                    <div className="ml-3">
                       <a
                         href={representantes.diputacionLocal.link}
                         target="_blank"
@@ -132,17 +143,17 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                           Diputación local distrito {info.distritoLocal}
                         </p>
                       </a>
-                    ) : (
-                      <>
-                        <p className="text-sm font-medium text-indigo-500">
-                          {representantes.diputacionLocal.nombre}
-                        </p>
-                        <p className="text-sm text-gray-500">
-                          Diputación local distrito {info.distritoLocal}
-                        </p>
-                      </>
-                    )}
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-indigo-500">
+                        {representantes.diputacionLocal.nombre}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Diputación local distrito {info.distritoLocal}
+                      </p>
+                    </div>
+                  )}
                 </li>
               )}
             </ul>

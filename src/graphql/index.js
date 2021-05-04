@@ -165,6 +165,7 @@ const resolvers = ({ db, st, logger }) => {
               'actores_politicos.nombre',
               'actores_politicos.img_url as imgUrl',
               'senadurias.periodo',
+              'senadurias.link',
             )
             .where('senadurias.estado', estadoId)
 

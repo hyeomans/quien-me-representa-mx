@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="bg-white py-1 px-3">
+    <footer className="bg-white py-2 px-3">
       <div className="flex max-w-4xl mx-auto items-center justify-between">
         <div className="mt-2 md:mt-0">
           <a href="https://twitter.com/h_yeomans" target="_blank" rel="noopener noreferrer">
-            <p className="text-center text-base text-gray-400">
+            <p className="text-center text-base text-gray-500 underline">
               Hecho{' '}
               <span role="img" aria-label="corazon">
                 🚀
@@ -17,7 +17,7 @@ export default function Footer() {
           href="https://github.com/hyeomans/quien-me-representa-mx"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-gray-500 transition-colors duration-200 pt-2">
+          className="text-gray-400 hover:text-gray-500 transition-colors duration-200">
           <span className="sr-only">Quien me representa en GitHub</span>
           <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
             <path
