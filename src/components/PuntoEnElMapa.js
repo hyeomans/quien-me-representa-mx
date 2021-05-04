@@ -2,7 +2,7 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
   return (
     <div className="absolute w-10/12 z-10 inset-y-0 left-0 mx-3 mt-1 sm:w-6/12 lg:w-4/12 overflow-x-auto mb-2">
       <div className="flex flex-col rounded shadow-lg overflow-hidden">
-        <div className="bg-indigo-300 flex items-start justify-between px-3 py-2">
+        <div className="bg-indigo-400 flex items-start justify-between px-3 py-2">
           <div className="text-white">
             <h2 className="text-xl font-bold">{info.municipio}</h2>
             <h2 className="text-sm -mt-1">{info.estado}</h2>
@@ -120,12 +120,28 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                     alt="imagen"
                   />
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-indigo-500">
-                      {representantes.diputacionLocal.nombre}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Diputación local distrito {info.distritoLocal}
-                    </p>
+                    {representantes.diputacionLocal.link ? (
+                      <a
+                        href={representantes.diputacionLocal.link}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <p className="text-sm font-medium text-indigo-500 hover:border-indigo-900">
+                          {representantes.diputacionLocal.nombre}
+                        </p>
+                        <p className="text-sm text-gray-500 border-b border-gray-700">
+                          Diputación local distrito {info.distritoLocal}
+                        </p>
+                      </a>
+                    ) : (
+                      <>
+                        <p className="text-sm font-medium text-indigo-500">
+                          {representantes.diputacionLocal.nombre}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Diputación local distrito {info.distritoLocal}
+                        </p>
+                      </>
+                    )}
                   </div>
                 </li>
               )}

@@ -21,6 +21,7 @@ const QUERY = gql`
         diputacionLocal {
           nombre
           imgUrl
+          link
         }
         diputacionFederal {
           nombre

@@ -42,7 +42,7 @@ readFile(`${process.cwd()}/scraping/congreso_local/sonora/directorio.html`)
       if (!nombre) {
         return
       }
-      const link = $(this).find('a:nth-child(1)').attr('href')
+      const link = $(this).find('a:nth-child(1)').attr('href').replace('?', '\\\\?')
       const cabecera = $(this).find('td:nth-child(1)').html()
 
       if (
@@ -68,7 +68,7 @@ readFile(`${process.cwd()}/scraping/congreso_local/sonora/directorio.html`)
     return diputados
       .map((d) => {
         return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${d.nombre}', 'Diputación Local Sonora por Distrito ${d.distritoLocal}', '${d.imgUrl}', '2021-05-02 13:00:00') ON CONFLICT DO NOTHING;
-insert into diputacion_local(actor_politico_id, periodo, distrito_local, estado, link) select id, '[2018-11-01,2021-09-01)'::daterange, ${d.distritoLocal}, 26, '${d.link}' from actores_politicos where nombre_formatted = lower(unaccent('${d.nombre}'));`
+insert into diputacion_local(actor_politico_id, periodo, distrito_local, estado, link) select id, '[2018-12-01,2021-12-02)'::daterange, ${d.distritoLocal}, 26, '${d.link}' from actores_politicos where nombre_formatted = lower(unaccent('${d.nombre}'));`
       })
       .join('\n')
   })

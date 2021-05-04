@@ -6,6 +6,7 @@ const typeDefs = gql`
     nombre: String!
     imgUrl: String
     periodo: String!
+    link: String
   }
 
   type Representantes {
@@ -107,6 +108,7 @@ const resolvers = ({ db, st, logger }) => {
               'actores_politicos.img_url as imgUrl',
               'diputacion_local.periodo',
               'diputacion_local.distrito_local',
+              'diputacion_local.link',
             )
             .where('diputacion_local.distrito_local', distritoLocal)
             .andWhere('diputacion_local.estado', estadoId)
