@@ -52,39 +52,5 @@ src/db/migrations/20210426210028_add_estado_to_diputacion_federal.js
 src/db/migrations/20210426223327_add_unaccent_extension.js
 
 ## SQL
-scraping/senado/senadores.aguascalientes.json
-scraping/senado/senadores.baja california sur.json
-scraping/senado/senadores.baja california.json
-scraping/senado/senadores.campeche.json
-scraping/senado/senadores.chiapas.json
-scraping/senado/senadores.chihuahua.json
-scraping/senado/senadores.ciudad de mexico.json
-scraping/senado/senadores.coahuila.json
-scraping/senado/senadores.colima.json
-scraping/senado/senadores.durango.json
-scraping/senado/senadores.guanajuato.json
-scraping/senado/senadores.guerrero.json
-scraping/senado/senadores.hidalgo.json
-scraping/senado/senadores.jalisco.json
-scraping/senado/senadores.mexico.json
-scraping/senado/senadores.michoacan.json
-scraping/senado/senadores.morelos.json
-scraping/senado/senadores.nayarit.json
-scraping/senado/senadores.nuevo leon.json
-scraping/senado/senadores.oaxaca.json
-scraping/senado/senadores.puebla.json
-scraping/senado/senadores.queretaro.json
-scraping/senado/senadores.quintana roo.json
-scraping/senado/senadores.san luis potosi.json
-scraping/senado/senadores.sinaloa.json
-scraping/senado/senadores.sonora.json
-scraping/senado/senadores.tabasco.json
-scraping/senado/senadores.tamaulipas.json
-scraping/senado/senadores.tlaxcala.json
-scraping/senado/senadores.txt
-scraping/senado/senadores.veracruz.json
-scraping/senado/senadores.yucatan.json
-scraping/senado/senadores.zacatecas.json
-scraping/gobernadores/sql.txt
-scraping/diputacion_federal/sql.txt
-scraping/diputacion_federal/*.html
+scraping/**/sql.txt
+scraping/**/directorio.html
