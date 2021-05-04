@@ -122,7 +122,7 @@ const Informacion = ({ data, setData }) => {
   return <PuntoEnElMapa info={info} representantes={representantes} setData={setData} />
 }
 
-function LocationMarker({ Marker, useMapEvents, position, setPosition, setData }) {
+function LocationMarker({ Marker, useMapEvents, useMap, position, setPosition, setData }) {
   const { data, loading, error } = useQuery(QUERY, {
     variables: {
       latitud: position && position.lat.toString(),
@@ -130,6 +130,8 @@ function LocationMarker({ Marker, useMapEvents, position, setPosition, setData }
     },
     skip: position === null,
   })
+  const map = useMap()
+
   useEffect(() => {
     if (data) {
       setData({
@@ -152,9 +154,20 @@ function LocationMarker({ Marker, useMapEvents, position, setPosition, setData }
     }
   }, [data, loading, error, setData])
 
+  useEffect(() => {
+    map.locate()
+  }, [])
+
   useMapEvents({
     click(e) {
       setPosition(e.latlng)
+      setData({
+        status: 'loading',
+      })
+    },
+    locationfound(location) {
+      map.setView(location.latlng, 16)
+      setPosition(location.latlng)
       setData({
         status: 'loading',
       })
@@ -201,7 +214,7 @@ export default function Home() {
             center={[23.681406310669356, -103.31439396326121]}
             zoom={4}
             scrollWheelZoom={true}>
-            {({ TileLayer, Marker, useMapEvents }) => (
+            {({ TileLayer, Marker, useMapEvents, useMap }) => (
               <>
                 <TileLayer
                   url={'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}
@@ -210,6 +223,7 @@ export default function Home() {
                 <LocationMarker
                   Marker={Marker}
                   useMapEvents={useMapEvents}
+                  useMap={useMap}
                   position={position}
                   setPosition={setPosition}
                   setData={setData}
