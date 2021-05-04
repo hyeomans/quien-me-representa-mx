@@ -132,12 +132,30 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                     src={representantes.presidenciaMunicipal.imgUrl}
                     alt="imagen"
                   />
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-indigo-500">
-                      {representantes.presidenciaMunicipal.nombre}
-                    </p>
-                    <p className="text-sm text-gray-500">Presidencia municipal {info.municipio}</p>
-                  </div>
+                  {representantes.presidenciaMunicipal.link ? (
+                    <div className="ml-3">
+                      <a
+                        href={representantes.presidenciaMunicipal.link}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
+                          {representantes.presidenciaMunicipal.nombre}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Presidencia municipal {info.municipio}
+                        </p>
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-indigo-500">
+                        {representantes.presidenciaMunicipal.nombre}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Presidencia municipal {info.municipio}
+                      </p>
+                    </div>
+                  )}
                 </li>
               )}
 

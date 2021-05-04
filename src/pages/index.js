@@ -37,6 +37,7 @@ const QUERY = gql`
         presidenciaMunicipal {
           nombre
           imgUrl
+          link
         }
         gobernante {
           nombre

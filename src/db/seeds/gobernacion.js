@@ -1,10 +1,6 @@
 exports.seed = async function (knex) {
   await knex('gobernacion').del()
 
-  await knex('actores_politicos')
-    .where('nombre_formatted', 'claudia artemiza pavlovich arellano')
-    .del()
-
   await knex.schema.raw(`
   insert into actores_politicos (nombre, puesto, img_url, created_at)
   values ('C.P. Martín Orozco Sandoval', 'Gobierno AGUASCALIENTES en período 01-12-2016,30-09-2022', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/MartinOrozcoSandoval.jpg', '2021-04-28 13:00:00') ON CONFLICT DO NOTHING;

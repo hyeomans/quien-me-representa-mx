@@ -146,6 +146,7 @@ const resolvers = ({ db, st, logger }) => {
               'actores_politicos.nombre',
               'actores_politicos.img_url as imgUrl',
               'presidencia_municipal.periodo',
+              'presidencia_municipal.link',
             )
             .where('presidencia_municipal.estado_id', estadoId)
             .andWhere('presidencia_municipal.municipio_id', municipioId)

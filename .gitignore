@@ -52,5 +52,5 @@ src/db/migrations/20210426210028_add_estado_to_diputacion_federal.js
 src/db/migrations/20210426223327_add_unaccent_extension.js
 
 ## SQL
-scraping/**/sql.txt
+scraping/**/*sql.txt
 scraping/**/directorio.html
