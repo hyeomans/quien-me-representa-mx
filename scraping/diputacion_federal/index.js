@@ -8,6 +8,7 @@ const writeFile = promisify(fs.writeFile)
 const entidades = require('./entidades')
 const { promises: Fs } = require('fs')
 const Promise = require('bluebird')
+const cloudinary = require('../cloudinary')
 
 async function exists(path) {
   try {
@@ -72,8 +73,8 @@ function colectLinksByEntidad() {
 }
 
 function main() {
-  let i = 31
-  let f = 32
+  let i = 29
+  let f = 30
   return exists(`${process.cwd()}/scraping/diputacion_federal/links_diputados_por_entidad.json`)
     .then((fileExists) => {
       if (!fileExists) {
@@ -152,19 +153,31 @@ function retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }) {
         .trim()
         .replace(/\n/g, '')
         .split(':')
-      const imgUrl = $(
+      const imgPath = $(
         'body > div > table.cajasombra > tbody > tr > td > table > tbody > tr > td:nth-child(1) > img',
       )
         .attr('src')
         .replace('.', '') //replace first dot
+      const imgUrl = `${baseUrl}${imgPath}`
 
       const replacedLink = link.replace('?', '\\\\?')
       //TODO: Improve this, might break in the future
       //TODO: No estoy agarrando diputados plurinominales
       if (entidad[0].toLowerCase().endsWith('distrito')) {
         const distrito = entidad[1].split('|')[0].trim()
-        return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}', '${baseUrl}${imgUrl}', '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
+
+        return cloudinary.uploader
+          .upload(imgUrl, {
+            folder: `diputacion_federal/lxiv_leg/entidad_${numeroEntidad}/distrito_${distrito}`,
+            public_id: nombre.toLowerCase().replace(/\s/g, '_'),
+            overwrite: true,
+          })
+          .then((cloudinaryResponse) => {
+            const { secure_url } = cloudinaryResponse
+
+            return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}', '${secure_url}', '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
 insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad, link) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad}, '${replacedLink}' from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));`
+          })
       }
 
       return ''

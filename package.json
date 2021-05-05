@@ -53,6 +53,7 @@
     "axios": "0.21.1",
     "bluebird": "3.7.2",
     "cheerio": "1.0.0-rc.6",
+    "cloudinary": "1.25.1",
     "eslint": "7.24.0",
     "eslint-config-prettier": "8.2.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
