@@ -73,8 +73,8 @@ function colectLinksByEntidad() {
 }
 
 function main() {
-  let i = 29
-  let f = 30
+  let i = 27
+  let f = 32
   return exists(`${process.cwd()}/scraping/diputacion_federal/links_diputados_por_entidad.json`)
     .then((fileExists) => {
       if (!fileExists) {
@@ -126,7 +126,7 @@ function allLinksPerEntidad({ numeroEntidad, nombreEntidad, links }) {
       .map((r) => r.trim())
       .map((r) => r.trimStart())
 
-    return `------ Resultados para ${nombreEntidad}
+    return `------ Resultados para ${nombreEntidad} - ${numeroEntidad}
 ------ Total de diputados ${linksLen}
 ------ Total de SQL queries ${clean.length}
 ${clean.join('\n')}`
@@ -174,9 +174,9 @@ function retrieveDiputadoData({ link, numeroEntidad, nombreEntidad }) {
           })
           .then((cloudinaryResponse) => {
             const { secure_url } = cloudinaryResponse
-
-            return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', 'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}', '${secure_url}', '2021-04-29 13:00:00') ON CONFLICT DO NOTHING;
-insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad, link) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad}, '${replacedLink}' from actores_politicos where nombre_formatted = lower(unaccent('${nombre}'));`
+            const puesto = `'Diputación Federal mayoría relativa ${nombreEntidad} por distrito ${distrito}'`
+            return `insert into actores_politicos (nombre, puesto, img_url, created_at) values ('${nombre}', ${puesto}, '${secure_url}', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) DO UPDATE SET img_url = EXCLUDED.img_url;
+insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad, link) select id, '[2018-11-01,2021-09-01)'::daterange, ${distrito}, ${numeroEntidad}, '${replacedLink}' from actores_politicos where nombre_formatted = lower(unaccent('${nombre}')) and puesto = ${puesto} ON CONFLICT  DO NOTHING;`
           })
       }
 
