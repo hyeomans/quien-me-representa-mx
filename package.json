@@ -39,7 +39,7 @@
     "knex": "0.95.4",
     "knex-postgis": "0.13.0",
     "leaflet": "1.7.1",
-    "next": "10.1.3",
+    "next": "10.2.0",
     "next-compose-plugins": "2.2.1",
     "next-images": "1.7.0",
     "pg": "8.6.0",
