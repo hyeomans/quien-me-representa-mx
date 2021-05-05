@@ -4,7 +4,7 @@ exports.seed = async function (knex) {
 
   await knex.schema.raw(`
   insert into actores_politicos (nombre, puesto, img_url, created_at)
-  values ('Fermín González Gaxiola', 'Presidente municipal Hermosillo', 'http://directorio.sonora.gob.mx/uploads/fotos/SIND._HILLO.jpg', '2021-04-20 20:24:23.681184')
+  values ('Fermín González Gaxiola', 'Presidente municipal Hermosillo', 'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620222512/presidencia_municipal/sonora/hermosillo/ferm%C3%ADn_gonz%C3%A1lez_gaxiola.jpg', '2021-04-20 20:24:23.681184')
   ON CONFLICT DO NOTHING;
   `)
 
