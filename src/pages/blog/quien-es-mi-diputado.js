@@ -42,7 +42,7 @@ export default function QuienEsMiDiputado() {
   return (
     <>
       <Nav />
-      <div className="relative py-16 bg-white overflow-hidden">
+      <div className="relative py-8 bg-white overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
             <svg
@@ -130,6 +130,12 @@ export default function QuienEsMiDiputado() {
             <h1>
               <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 ¿Quién es mi diputado?
+              </span>
+              <span className="block text-xs text-center text-indigo-600 font-semibold tracking-wide uppercase">
+                <a href="https://hyeomans.com/" target="_blank" rel="noreferrer">
+                  Héctor Yeomans
+                </a>{' '}
+                - 9 Mayo 2021
               </span>
             </h1>
             <p className="py-5">Da clic cerca de tu casa en el mapa para conocerlo.</p>
