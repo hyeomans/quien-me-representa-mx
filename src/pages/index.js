@@ -5,7 +5,7 @@ import LocationMarker from '../components/LocationMarker'
 import Informacion from '../components/Informacion'
 import Footer from '../components/Footer'
 import { gql } from '@apollo/client'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 
 const QUERY = gql`
   query locacion($latitud: String!, $longitud: String!) {
@@ -56,21 +56,47 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>¿Quién me representa?</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="¿Quién me representa?" key="title" />
-        <meta charSet="UTF-8" />
-
-        <meta
-          name="description"
-          content="¿Quiénes son mis representantes políticos? ¿Quién es mi diputado? ¿Quién es mi senador?"></meta>
-        <meta
-          property="og:description"
-          content="¿Quiénes son mis representantes políticos? ¿Quién es mi diputado? ¿Quién es mi senador?"
-          key="ogdesc"
-        />
-      </Head>
+      <NextSeo
+        title="¿Quién me representa?"
+        description="¿Quién es mi diputado? ¿quién es mi senador? ¿quién es mi gobernador?"
+        canonical="https://www.quienmerepresenta.com.mx/"
+        openGraph={{
+          url: 'https://www.quienmerepresenta.com.mx/',
+          locale: 'es-MX',
+          title: '¿Quién me representa?',
+          description: '¿Quién es mi diputado? ¿quién es mi senador? ¿quién es mi gobernador?',
+          article: {
+            publishedTime: '2021-05-09T13:00:00Z',
+            modifiedTime: '2021-05-09T13:00:00Z',
+            section: 'politic',
+            tags: [
+              'diputados',
+              'diputado',
+              'diputado federal',
+              'diputado local',
+              'gobernador',
+              'gobernadora',
+              'diputada',
+              'senador',
+              'senadora',
+            ],
+          },
+          images: [
+            {
+              url:
+                'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620589826/blog/quien-es-mi-diputado/quien-es-mi-diputado_bujubb.png',
+              width: 1578,
+              height: 1074,
+              alt: 'Quien Me Representa',
+            },
+          ],
+          site_name: 'Quien Me Representa',
+        }}
+        twitter={{
+          handle: '@h_yeomans',
+          cardType: 'summary_large_image',
+        }}
+      />
       <div className="h-screen w-screen bg-gray-100 flex flex-col justify-between">
         <Nav />
         <div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">

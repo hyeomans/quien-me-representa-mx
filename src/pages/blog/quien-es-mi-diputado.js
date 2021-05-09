@@ -48,7 +48,7 @@ export default function QuienEsMiDiputado() {
         description="Quien es mi diputado. Que hace un diputado. Cuales son las funciones de un diputado"
         canonical="https://www.quienmerepresenta.com.mx/"
         openGraph={{
-          url: 'https://www.quienmerepresenta.com.mx/',
+          url: 'https://www.quienmerepresenta.com.mx/blog/quien-es-mi-diputado',
           locale: 'es-MX',
           title: '¿Quién es mi diputado?',
           description:
@@ -221,8 +221,7 @@ export default function QuienEsMiDiputado() {
             </p>
             <p>
               Los diputados <strong>locales</strong> representan un distrito dentro de un estado. La
-              cantidad de distritos locales varía por estado. La Ciudad de México le llama Asamblea
-              Legislativa a su congreso.
+              cantidad de distritos locales varía por estado.
             </p>
             <h2>¿Cuál es el trabajo de un diputado federal?</h2>
             <p>
@@ -281,7 +280,7 @@ export default function QuienEsMiDiputado() {
             <p>
               Vivimos en una república representativa y democrática. Cada estado de la república
               tiene autonomía para ejecutar el presupuesto. Las personas que aprueban el presupuesto
-              estatal, son los diputados locales.
+              estatal, son los <strong>diputados locales</strong>.
             </p>
             <p>La lista completa de facultades son:</p>
             <ul>
@@ -318,19 +317,19 @@ export default function QuienEsMiDiputado() {
               describieron. El acto de cumplir todas esas facultades se le llama legislar.{' '}
               <strong>
                 Entregar apoyos, gestionar recursos, limpiar, arreglar baches, resolver trámites,
-                etcétera no es su trabajo.
+                etcétera NO es parte de su trabajo.
               </strong>{' '}
-              Realizar esas actividades son un actividades extracurriculares a su trabajo como
+              Realizar esas actividades son actividades extracurriculares a su trabajo como
               diputados y diputadas.
             </p>
 
             <p>
               Evaluar a un diputado debe estar relacionado con su trabajo legislativo. Es una tarea
               difícil el evaluar a un diputado porque los diputados y diputadas se pueden
-              especializar para avanzar en su carrera política. Algunos se enfocan en la creación y
-              promoción de nuevas leyes. Otros en llevar a juicio político a algún funcionario
-              público. Otros se dedican a empujar la agenda del ejecutivo, ya sea estatal o federal.
-              Y algunos otros no hacen nada.
+              especializar para avanzar en su <strong>carrera política</strong>. Algunos se enfocan
+              en la creación y promoción de nuevas leyes. Otros en llevar a juicio político a algún
+              funcionario público. Otros se dedican a empujar la agenda del ejecutivo, ya sea
+              estatal o federal. Y algunos otros no hacen nada.
             </p>
             <p>
               Por lo tanto, como ciudadanos podemos{' '}
@@ -338,6 +337,11 @@ export default function QuienEsMiDiputado() {
               legislatura, revisar si <strong>cumplieron sus promesas</strong>. Nuestra tarea es
               encontrar cuales son sus propuestas. Cuando las propuestas son específicas, será más
               fácil evaluarlos.
+            </p>
+            <p>
+              <strong>
+                Debemos de exigir acciones que se puedan medir al final de los tres años de trabajo.
+              </strong>
             </p>
 
             <h3>Más información</h3>
