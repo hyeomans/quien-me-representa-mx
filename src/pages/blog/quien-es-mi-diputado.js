@@ -5,6 +5,8 @@ import Footer from '../../components/Footer'
 import LocationMarker from '../../components/LocationMarker'
 import Informacion from '../../components/Informacion'
 import Nav from '../../components/Nav'
+import { NextSeo, NewsArticleJsonLd } from 'next-seo'
+import Link from 'next/link'
 
 const QUERY = gql`
   query locacion($latitud: String!, $longitud: String!) {
@@ -41,6 +43,50 @@ export default function QuienEsMiDiputado() {
 
   return (
     <>
+      <NextSeo
+        title="¿Quién me representa? | ¿Quien es mi diputado?"
+        description="Quien es mi diputado. Que hace un diputado. Cuales son las funciones de un diputado"
+        canonical="https://www.quienmerepresenta.com.mx/"
+        openGraph={{
+          url: 'https://www.quienmerepresenta.com.mx/',
+          locale: 'es-MX',
+          title: '¿Quién es mi diputado?',
+          description:
+            '¿Quién es mi diputado?, ¿cuál es la diferencia entre diputado federal y local?, ¿cuáles son sus funciones?',
+          article: {
+            publishedTime: '2021-05-09T13:00:00Z',
+            modifiedTime: '2021-05-09T13:00:00Z',
+            section: 'politic',
+            tags: ['diputados', 'diputado', 'diputado federal', 'diputado local'],
+          },
+          images: [
+            {
+              url:
+                'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620589826/blog/quien-es-mi-diputado/quien-es-mi-diputado_bujubb.png',
+              width: 1578,
+              height: 1074,
+              alt: 'Quien es mi diputado',
+            },
+          ],
+          site_name: 'Quien Me Representa',
+        }}
+        twitter={{
+          handle: '@h_yeomans',
+          cardType: 'summary_large_image',
+        }}
+      />
+      <NewsArticleJsonLd
+        url="https://www.quienmerepresenta.com.mx/blog/quien-es-mi-diputado"
+        title="¿Quien es mi diputado?"
+        images={[
+          'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620589826/blog/quien-es-mi-diputado/quien-es-mi-diputado_bujubb.png',
+        ]}
+        section="politic"
+        keywords="diputado,diputados,diputado federal, diputado local"
+        datePublished="2021-05-09T13:00:00Z"
+        dateModified="2021-05-09T13:00:00Z"
+        authorName="Hector Yeomans"
+      />
       <Nav />
       <div className="relative py-8 bg-white overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
@@ -296,6 +342,11 @@ export default function QuienEsMiDiputado() {
 
             <h3>Más información</h3>
             <ul>
+              <li>
+                <Link href="/">
+                  <a>¿Quién me representa?</a>
+                </Link>
+              </li>
               <li>
                 <a
                   href="https://www.youtube.com/watch?v=U1f6Er0gAeA"
