@@ -43,22 +43,23 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                 </div>
               </li>
               {/* Gobernación estatal */}
-              <li className="py-4 flex">
-                {representantes.gobernante.imgUrl && (
-                  <img
-                    className="h-12 w-10 rounded-full"
-                    src={representantes.gobernante.imgUrl}
-                    alt="imagen"
-                  />
-                )}
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-indigo-500">
-                    {representantes.gobernante.nombre}
-                  </p>
-                  <p className="text-sm text-gray-500">Gobernación estado de {info.estado}</p>
-                </div>
-              </li>
-
+              {representantes.gobernante && (
+                <li className="py-4 flex">
+                  {representantes.gobernante.imgUrl && (
+                    <img
+                      className="h-12 w-10 rounded-full"
+                      src={representantes.gobernante.imgUrl}
+                      alt="imagen"
+                    />
+                  )}
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-indigo-500">
+                      {representantes.gobernante.nombre}
+                    </p>
+                    <p className="text-sm text-gray-500">Gobernación estado de {info.estado}</p>
+                  </div>
+                </li>
+              )}
               {/* Diputación federal */}
               <li className="py-4 flex">
                 {representantes.diputacionFederal ? (
@@ -103,26 +104,27 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
               </li>
 
               {/* Senadores */}
-              {representantes.senadores.map((senador) => (
-                <li key={senador.nombre} className="py-4 flex">
-                  <img className="h-12 w-10 rounded-full" src={senador.imgUrl} alt="imagen" />
-                  {senador.link ? (
-                    <div className="ml-3">
-                      <a href={senador.link} target="_blank" rel="noopener noreferrer">
-                        <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
-                          {senador.nombre}
-                        </p>
+              {representantes.senadores &&
+                representantes.senadores.map((senador) => (
+                  <li key={senador.nombre} className="py-4 flex">
+                    <img className="h-12 w-10 rounded-full" src={senador.imgUrl} alt="imagen" />
+                    {senador.link ? (
+                      <div className="ml-3">
+                        <a href={senador.link} target="_blank" rel="noopener noreferrer">
+                          <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
+                            {senador.nombre}
+                          </p>
+                          <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
+                        </a>
+                      </div>
+                    ) : (
+                      <div className="ml-3">
+                        <p className="text-sm font-medium text-indigo-500">{senador.nombre}</p>
                         <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
-                      </a>
-                    </div>
-                  ) : (
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-indigo-500">{senador.nombre}</p>
-                      <p className="text-sm text-gray-500">Senaduría {info.estado}</p>
-                    </div>
-                  )}
-                </li>
-              ))}
+                      </div>
+                    )}
+                  </li>
+                ))}
 
               {/* Presidencia municipal */}
               {representantes.presidenciaMunicipal && (
