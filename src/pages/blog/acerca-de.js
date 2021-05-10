@@ -1,10 +1,53 @@
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 
 export default function AcercaDe() {
   return (
     <>
+      <NextSeo
+        title="¿Quién me representa?"
+        description="¿Cuánto cuesta mantener este sitio? ¿por qué hiciste esta página? ¿quién eres?"
+        canonical="https://www.quienmerepresenta.com.mx/"
+        openGraph={{
+          url: 'https://www.quienmerepresenta.com.mx/blog/acerca-de',
+          locale: 'es-MX',
+          title: '¿Quién me representa?',
+          description:
+            '¿Cuánto cuesta mantener este sitio? ¿por qué hiciste esta página? ¿quién eres?',
+          article: {
+            publishedTime: '2021-05-10T13:00:00Z',
+            modifiedTime: '2021-05-10T13:00:00Z',
+            section: 'politic',
+            tags: [
+              'diputados',
+              'diputado',
+              'diputado federal',
+              'diputado local',
+              'gobernador',
+              'gobernadora',
+              'diputada',
+              'senador',
+              'senadora',
+            ],
+          },
+          images: [
+            {
+              url:
+                'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620589826/blog/quien-es-mi-diputado/quien-es-mi-diputado_bujubb.png',
+              width: 1578,
+              height: 1074,
+              alt: 'Quien Me Representa',
+            },
+          ],
+          site_name: 'Quien Me Representa',
+        }}
+        twitter={{
+          handle: '@h_yeomans',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Nav />
       <div className="bg-white overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
