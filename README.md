@@ -1,7 +1,6 @@
 
 
 # WIP
-This is a work in progress.
 
 https://www.quienmerepresenta.com.mx/
 
@@ -91,3 +90,8 @@ Municipios:
 http://www.snim.rami.gob.mx/
 
 Diputaciones locales(?)
+
+
+## TODOs
+
+- [ ] Tomar en cuenta el período al hacer query por servidor público.
