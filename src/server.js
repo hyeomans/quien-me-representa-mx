@@ -5,6 +5,7 @@ const knexPostgis = require('knex-postgis')
 const compression = require('compression')
 const helmet = require('helmet')
 const pino = require('pino')
+const packageJson = require('../package.json')
 
 const graphqlServer = require('./graphql')
 const logger = pino()
@@ -76,6 +77,6 @@ nextApp.prepare().then(() => {
       ga_id: process.env.NEXT_PUBLIC_GA_ID,
     })
     logger.info(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
-    logger.info(`> Ready on http://localhost:${config.web.port}`)
+    logger.info(`> Version ${packageJson.version} ready on http://localhost:${config.web.port}`)
   })
 })
