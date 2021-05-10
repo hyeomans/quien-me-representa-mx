@@ -131,9 +131,14 @@ export default function AcercaDe() {
                   más posible la extracción de datos para que no pase lo mismo con este sitio.
                 </p>
                 <p>
-                  Otra razón fue poder compartir el código que escribí. No es el mejor código pero
-                  cumple su función. Todo el código que he escrito es público, está en Github, una
-                  plataforma para compartir código.
+                  <a
+                    href="https://github.com/hyeomans/quien-me-representa-mx"
+                    target="_blank"
+                    rel="noreferrer">
+                    Otra razón fue poder compartir el código que escribí.
+                  </a>{' '}
+                  No es el mejor código pero cumple su función. Todo el código que he escrito es
+                  público, está en Github, una plataforma para compartir código.
                 </p>
                 <h3>¿Cómo le sacas dinero al sitio?</h3>
                 <p>

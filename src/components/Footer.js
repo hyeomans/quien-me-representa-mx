@@ -1,18 +1,11 @@
 export default function Footer() {
   return (
     <footer className="bg-indigo-300 py-2 px-3 ">
-      <div className="flex max-w-4xl mx-auto items-center justify-between">
-        <div className="mt-2 md:mt-0">
-          <a href="https://twitter.com/h_yeomans" target="_blank" rel="noopener noreferrer">
-            <p className="text-center text-base text-white underline">
-              Hecho{' '}
-              <span role="img" aria-label="corazon">
-                🚀
-              </span>{' '}
-              por Héctor Yeomans
-            </p>
-          </a>
-        </div>
+      <div className="flex max-w-7xl mx-auto items-center justify-between">
+        <a href="https://twitter.com/h_yeomans" target="_blank" rel="noopener noreferrer">
+          <p className="text-center text-base text-white">Por Héctor Yeomans</p>
+        </a>
+
         <a
           href="https://github.com/hyeomans/quien-me-representa-mx"
           target="_blank"
