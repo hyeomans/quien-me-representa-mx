@@ -46,7 +46,7 @@ export default function QuienEsMiDiputado() {
       <NextSeo
         title="¿Quién me representa? | ¿Quien es mi diputado?"
         description="Quien es mi diputado. Que hace un diputado. Cuales son las funciones de un diputado"
-        canonical="https://www.quienmerepresenta.com.mx/"
+        canonical="https://www.quienmerepresenta.com.mx/blog/quien-es-mi-diputado"
         openGraph={{
           url: 'https://www.quienmerepresenta.com.mx/blog/quien-es-mi-diputado',
           locale: 'es-MX',

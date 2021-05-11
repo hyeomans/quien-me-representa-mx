@@ -1,8 +1,10 @@
 import 'tailwindcss/tailwind.css'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { DefaultSeo } from 'next-seo'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
+import SEO from '../lib/next-seo.config'
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -24,6 +26,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={client}>
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </ApolloProvider>
   )

@@ -100,13 +100,13 @@ export default function Home() {
       <div className="h-screen w-screen bg-gray-100 flex flex-col justify-between">
         <Nav />
         <div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:py-4 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="font-extrabold tracking-tight text-gray-900 lg:text-4xl">
+          <h1 className="font-extrabold tracking-tight text-gray-900 lg:text-4xl">
             <span className="block sm:hidden">¿Quiénes me representan en México?</span>
             <span className="hidden sm:block">
               ¿Quiénes son mis representantes políticos en México?
             </span>
             <span className="block text-indigo-600">Busca tu ubicación y da click en el mapa.</span>
-          </h2>
+          </h1>
         </div>
         <div className="relative w-full h-full">
           <Map
