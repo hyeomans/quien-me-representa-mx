@@ -1,5 +1,6 @@
 exports.seed = async function (knex) {
-  await knex('diputacion_local').del()
+  await knex('diputacion_federal').del()
+  await knex('actores_politicos').del()
   await knex.schema.raw(`
   insert into actores_politicos (nombre, puesto, img_url, created_at) values ('Francisco Javier Luévano Núñez', 'Diputación Federal por Distrito Federal 1 en legislatura LXIV', 'https://res.cloudinary.com/quienmerepresenta/image/upload/v1621034563/diputacion_federal/legislatura_LXIV/francisco_javier_lu%C3%A9vano_n%C3%BA%C3%B1ez.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) DO UPDATE SET img_url = EXCLUDED.img_url;
 insert into diputacion_federal(actor_politico_id, periodo, distrito_federal, numero_entidad, link) select id, '[2018-11-01,2021-09-01)'::daterange, 1, 1, 'http://sitl.diputados.gob.mx/LXIV_leg/curricula.php\\?dipt=1' from actores_politicos where nombre_formatted = lower(unaccent('Francisco Javier Luévano Núñez')) and puesto = 'Diputación Federal por Distrito Federal 1 en legislatura LXIV' ON CONFLICT  DO NOTHING;

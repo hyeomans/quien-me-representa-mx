@@ -95,3 +95,4 @@ Diputaciones locales(?)
 ## TODOs
 
 - [ ] Tomar en cuenta el período al hacer query por servidor público.
+- [ ] Crear unique index para período de diputados federales.
