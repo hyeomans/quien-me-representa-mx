@@ -5,7 +5,7 @@ WORKDIR /app
 COPY *.json /app/
 COPY *.lock /app/
 
-RUN yarn install
+RUN yarn install --frozen-lockfile
 COPY . /app/
 RUN npx next telemetry disable
 
