@@ -1,14 +1,13 @@
 const express = require('express')
 const next = require('next')
-const knex = require('knex')
-const knexPostgis = require('knex-postgis')
 const compression = require('compression')
 const helmet = require('helmet')
-const pino = require('pino')
-const packageJson = require('../package.json')
 
+const packageJson = require('../package.json')
 const graphqlServer = require('./graphql')
-const logger = pino()
+const logger = require('./logger')
+const loadConfig = require('./config')
+const initDb = require('./db')
 
 // Make sure to set this on package.json script because
 // Next only loads env variables after calling `prepare()`
@@ -20,39 +19,8 @@ const handle = nextApp.getRequestHandler()
 
 nextApp.prepare().then(() => {
   //Next prepare loads environment variables
-  const config = {
-    web: {
-      port: process.env.NODE_PORT,
-    },
-    db: {
-      host: process.env.POSTGRES_HOST,
-      user: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      port: process.env.POSTGRES_PORT,
-      database: process.env.POSTGRES_DB,
-      debug: process.env.KNEX_DEGUB === 'true',
-    },
-  }
-
-  const db = knex({
-    client: 'pg',
-    connection: {
-      host: config.db.host,
-      user: config.db.user,
-      password: config.db.password,
-      port: config.db.port,
-      database: config.db.database,
-    },
-    pool: {
-      min: 0,
-      max: 5,
-      acquireTimeoutMillis: 60000,
-      idleTimeoutMillis: 600000,
-    },
-    useNullAsDefault: true,
-    debug: config.db.debug,
-  })
-  const st = knexPostgis(db)
+  const config = loadConfig({ env: nodeEnv, isDevEnv: dev })
+  const { db, st } = initDb({ config })
 
   const expressServer = express()
   if (nodeEnv === 'production') {
@@ -71,10 +39,10 @@ nextApp.prepare().then(() => {
     if (err) throw err
     logger.info({
       msg: 'Environment variables',
-      db_host: process.env.POSTGRES_HOST,
-      web_port: process.env.NODE_PORT,
-      node_env: process.env.NODE_ENV,
-      ga_id: process.env.NEXT_PUBLIC_GA_ID,
+      dbHost: config.db.host,
+      webPort: config.web.port,
+      nodeEnv: config.env,
+      gaId: config.web.gaId,
     })
     logger.info(`> Graphql endpoint ready on: http://localhost:${config.web.port}/graphql`)
     logger.info(`> Version ${packageJson.version} ready on http://localhost:${config.web.port}`)
