@@ -18,6 +18,9 @@ const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler()
 
 nextApp.prepare().then(() => {
+  if (!dev) {
+    require('newrelic')
+  }
   //Next prepare loads environment variables
   const config = loadConfig({ env: nodeEnv, isDevEnv: dev })
   const { db, st } = initDb({ config })
