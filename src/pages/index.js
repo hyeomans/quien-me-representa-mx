@@ -67,7 +67,7 @@ export default function Home() {
           description: '¿Quién es mi diputado? ¿quién es mi senador? ¿quién es mi gobernador?',
           article: {
             publishedTime: '2021-05-09T13:00:00Z',
-            modifiedTime: '2021-05-31T13:00:00Z',
+            modifiedTime: '2021-08-27T13:00:00Z',
             section: 'politic',
             tags: [
               'diputados',
