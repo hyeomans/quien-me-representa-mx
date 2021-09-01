@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@apollo/client": "3.3.15",
+    "@godaddy/terminus": "4.9.0",
     "@headlessui/react": "1.2.0",
     "@heroicons/react": "1.0.1",
     "apollo-server-express": "2.23.0",
