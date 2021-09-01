@@ -1,8 +1,10 @@
 import 'tailwindcss/tailwind.css'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+
 import * as gtag from '../lib/gtag'
 import SEO from '../lib/next-seo.config'
 

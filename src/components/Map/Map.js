@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
-import L from 'leaflet'
-import * as ReactLeaflet from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+
+import L from 'leaflet'
+import { useEffect } from 'react'
+import * as ReactLeaflet from 'react-leaflet'
 
 const { MapContainer } = ReactLeaflet
 

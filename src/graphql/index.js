@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server-express')
+const Promise = require('bluebird')
 
 //GRAPHQL
 const typeDefs = gql`

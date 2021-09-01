@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import Map from '../components/Map'
-import Nav from '../components/Nav'
-import LocationMarker from '../components/LocationMarker'
-import Informacion from '../components/Informacion'
-import Footer from '../components/Footer'
 import { gql } from '@apollo/client'
 import { NextSeo } from 'next-seo'
+import { useState } from 'react'
+
+import Footer from '../components/Footer'
+import Informacion from '../components/Informacion'
+import LocationMarker from '../components/LocationMarker'
+import Map from '../components/Map'
+import Nav from '../components/Nav'
 
 const QUERY = gql`
   query locacion($latitud: String!, $longitud: String!) {

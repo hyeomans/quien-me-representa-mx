@@ -37,5 +37,7 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 }
