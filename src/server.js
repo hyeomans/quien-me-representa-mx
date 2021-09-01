@@ -2,8 +2,6 @@ require('dotenv').config()
 const http = require('http')
 const express = require('express')
 const next = require('next')
-const compression = require('compression')
-const helmet = require('helmet')
 
 const initTerminus = require('./terminus')
 const packageJson = require('../package.json')
@@ -11,6 +9,7 @@ const graphqlServer = require('./graphql')
 const logger = require('./logger')
 const loadConfig = require('./config')
 const initDb = require('./db')
+const middleware = require('./middleware')
 
 const nodeEnv = process.env.NODE_ENV
 const dev = process.env.NODE_ENV !== 'production'
@@ -28,7 +27,7 @@ if (nodeEnv === 'production') {
   expressServer.set('trust proxy', 1) // trust first proxy
 }
 
-expressServer.use(helmet({ contentSecurityPolicy: false }), compression())
+middleware(expressServer)
 
 graphqlServer({ expressServer, db, st, logger })
 
