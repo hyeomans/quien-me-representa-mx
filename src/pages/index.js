@@ -45,6 +45,7 @@ const QUERY = gql`
         gobernante {
           nombre
           imgUrl
+          link
         }
       }
     }

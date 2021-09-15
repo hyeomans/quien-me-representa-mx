@@ -120,6 +120,7 @@ const initLocacion = ({ db, st, logger }) => {
           'actores_politicos.nombre',
           'actores_politicos.img_url as imgUrl',
           'gobernacion.periodo',
+          'gobernacion.link',
         )
         .where('gobernacion.estado', estadoId)
         .first()

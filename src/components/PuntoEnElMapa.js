@@ -53,10 +53,15 @@ const PuntoEnElMapa = ({ info, representantes, setData }) => {
                     />
                   )}
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-indigo-500">
-                      {representantes.gobernante.nombre}
-                    </p>
-                    <p className="text-sm text-gray-500">Gobernación estado de {info.estado}</p>
+                    <a
+                      href={representantes.gobernante.link}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <p className="text-sm font-medium text-indigo-500 underline hover:text-indigo-900">
+                        {representantes.gobernante.nombre}
+                      </p>
+                      <p className="text-sm text-gray-500">Gobernación estado de {info.estado}</p>
+                    </a>
                   </div>
                 </li>
               )}
