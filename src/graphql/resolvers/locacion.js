@@ -97,20 +97,10 @@ const initLocacion = ({ db, st, logger }) => {
         .first()
 
       const municipioP = db
-        .table('presidencia_municipal')
-        .innerJoin(
-          'actores_politicos',
-          'actores_politicos.id',
-          'presidencia_municipal.actor_politico_id',
-        )
-        .select(
-          'actores_politicos.nombre',
-          'actores_politicos.img_url as imgUrl',
-          'presidencia_municipal.periodo',
-          'presidencia_municipal.link',
-        )
-        .where('presidencia_municipal.estado_id', estadoId)
-        .andWhere('presidencia_municipal.municipio_id', municipioId)
+        .table('presidencia_municipal_simplificado')
+        .select('nombre', 'img_url as imgUrl', 'periodo', 'link')
+        .where('estado_id', estadoId)
+        .andWhere('municipio_id', municipioId)
         .first()
 
       const gobernacionP = db

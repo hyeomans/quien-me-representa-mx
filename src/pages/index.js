@@ -60,22 +60,26 @@ export default function Home() {
     <>
       <NextSeo
         title="¿Quién me representa?"
-        description="¿Quién es mi diputado? ¿quién es mi senador? ¿quién es mi gobernador?"
+        description="Conoce a tu diputado. Conoce a tu senador."
         canonical="https://www.quienmerepresenta.com.mx/"
         openGraph={{
           url: 'https://www.quienmerepresenta.com.mx/',
           locale: 'es-MX',
           title: '¿Quién me representa?',
-          description: '¿Quién es mi diputado? ¿quién es mi senador? ¿quién es mi gobernador?',
+          description: 'Conoce a tu diputado. Conoce a tu senador.',
           article: {
             publishedTime: '2021-05-09T13:00:00Z',
-            modifiedTime: '2021-08-27T13:00:00Z',
+            modifiedTime: '2021-09-17T13:00:00Z',
             section: 'politic',
             tags: [
               'diputados',
               'quien es mi diputado',
               'quien es mi diputado federal',
               'quien es mi diputado local',
+              'ubica a tu diputado',
+              'ubica a tu diputado',
+              'conoce a tu diputado',
+              'conoce a tu senador',
               'gobernador',
               'gobernadora',
               'diputada',
@@ -89,7 +93,7 @@ export default function Home() {
                 'https://res.cloudinary.com/quienmerepresenta/image/upload/v1620589826/blog/quien-es-mi-diputado/quien-es-mi-diputado_bujubb.png',
               width: 1578,
               height: 1074,
-              alt: 'Quien Me Representa',
+              alt: 'Conoce a tu diputado. Conoce a tu senador.',
             },
           ],
           site_name: 'Quien Me Representa',
