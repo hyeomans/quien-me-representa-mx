@@ -11,10 +11,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Layda Elena Sansores San Roman',
+        'Lia Limón García',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.dao.gob.mx/',
         10,
         9
@@ -34,10 +34,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Vidal Llerenas Morales',
+        'Margarita Saldaña Hernández',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://azcapotzalco.cdmx.gob.mx/',
         2,
         9
@@ -60,7 +60,7 @@ exports.seed = async function (knex) {
         'Santiago Taboada Cortina',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.delegacionbenitojuarez.gob.mx/',
         14,
         9
@@ -80,10 +80,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Manuel Negrete Arias',
+        'José Giovani Gutiérrez Aguilar',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://coyoacan.cdmx.gob.mx/',
         3,
         9
@@ -103,10 +103,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Adrian Rubalcava Suarez',
+        'Adrián Rubalcava Suárez',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         null,
         4,
         9
@@ -126,10 +126,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Nestor Nuñez Lopez',
+        'Sandra Xantall Cuevas Nieves',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://alcaldiacuauhtemoc.mx/',
         15,
         9
@@ -152,7 +152,7 @@ exports.seed = async function (knex) {
         'Francisco Chiguil Figueroa',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.gamadero.gob.mx/',
         5,
         9
@@ -172,10 +172,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Raul Armando Quintero Martinez',
+        'Raúl Armando Quintero Martínez',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.iztacalco.cdmx.gob.mx/inicio/index.php',
         6,
         9
@@ -198,7 +198,7 @@ exports.seed = async function (knex) {
         'Clara Marina Brugada Molina',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.iztapalapa.cdmx.gob.mx/',
         7,
         9
@@ -218,10 +218,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Patricia Jimena Ortiz Couturier',
+        'Luis Gerardo Quijano Morales',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://mcontreras.gob.mx/',
         8,
         9
@@ -241,10 +241,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Victor Hugo Romo De Vivar Guerra',
+        'Mauricio Tabe Echartea',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://alcaldia.miguelhidalgo.gob.mx/',
         16,
         9
@@ -264,10 +264,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Octavio Rivero Villaseñor',
+        'Judith Venegas Tapia',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.milpa-alta.cdmx.gob.mx/',
         9,
         9
@@ -287,10 +287,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Raymundo Martinez Vite',
+        'Araceli Berenice Hernández Calderón',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.tlahuac.cdmx.gob.mx',
         11,
         9
@@ -310,10 +310,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Patricia Elena Aceves Pastrana',
+        'Alfa Eliana González Magallanes',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.tlalpan.gob.mx',
         12,
         9
@@ -333,10 +333,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Julio Cesar Moreno Rivera',
+        'Evelyn Parra Álvarez',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://www.vcarranza.cdmx.gob.mx/',
         17,
         9
@@ -356,10 +356,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Carlos Acosta Ruiz',
+        'José Carlos Acosta Ruiz',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-10-01, 2021-09-30)'::daterange,
+        '[2021-10-01, 2024-09-30)'::daterange,
         'http://xochimilco.gob.mx/',
         13,
         9

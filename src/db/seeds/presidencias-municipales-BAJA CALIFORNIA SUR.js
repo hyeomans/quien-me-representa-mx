@@ -11,10 +11,33 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Walter Valenzuela Acosta',
+        'Iliana Guadalupe Talamantes Higuera',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
+        'http://www.comondu.gob.mx',
+        1,
+        3
+      ) ON CONFLICT (
+        nombre_formatted,
+        puesto
+      )
+      DO UPDATE SET img_url = EXCLUDED.img_url;
+              
+
+      insert into presidencia_municipal_simplificado(
+        nombre,
+        puesto,
+        img_url,
+        periodo,
+        link,
+        municipio_id,
+        estado_id
+      ) VALUES (
+        'Lorena Isela Berber Holguin',
+        'Regidores',
+        'https://via.placeholder.com/50',
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -37,7 +60,7 @@ exports.seed = async function (knex) {
         'Rosendo Ozuna Chavez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -57,10 +80,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Maria Concepcion Maga?a Martinez',
+        'Ma Concepcion Magaña Martinez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -80,10 +103,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Edgar Gerardo Garcia Perez',
+        'Honorio Arvizu Cota',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -103,10 +126,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Claudia Zoraida Ceja De Dios',
+        'Lourdes Guadalupe Vazquez Velazquez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -126,10 +149,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Genaro Javier Rodriguez Ocsejo',
+        'Ruben Agustin Arce Cordero',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -149,10 +172,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Erika Celene Venalonzo Camacho',
+        'Tomas Lopez Ramirez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -172,10 +195,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Francisco Alejandro Garcia Berber',
+        'Sonia Murillo Macias',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -195,33 +218,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Maria Del Carmen Nieblas Meza',
+        'Aracely Villicaña Camargo',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
-        'http://www.comondu.gob.mx',
-        1,
-        3
-      ) ON CONFLICT (
-        nombre_formatted,
-        puesto
-      )
-      DO UPDATE SET img_url = EXCLUDED.img_url;
-              
-
-      insert into presidencia_municipal_simplificado(
-        nombre,
-        puesto,
-        img_url,
-        periodo,
-        link,
-        municipio_id,
-        estado_id
-      ) VALUES (
-        'Jose Luis Garcia Rosas',
-        'Regidores',
-        'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.comondu.gob.mx',
         1,
         3
@@ -240,10 +240,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Ruben Gregorio Muñoz Alvarez',
+        'Milena Paola Quiroga Romero',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -263,10 +263,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jorge Pavel Castro Rios',
+        'Ma. Teresa 	 Ruiz Soto',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -286,10 +286,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Marcela Amador Morga',
+        'Nestor Alejandro Araiza Castellon',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -309,10 +309,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Maria Aviles Castro',
+        'Perla Ivette Carreon Solis',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -332,10 +332,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Irma Yolanda Robledo Galaviz',
+        'Rogelio Ramos Gomez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -355,10 +355,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Juan Ramon Dominguez Leyva',
+        'Osiris Del Carmen Lara Ramos',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -378,10 +378,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Cecilia Higuera Murillo',
+        'Homero Montaño Angulo',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -401,10 +401,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Homero Davis Castro',
+        'Luis Enrique 	 Lucero Meza',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -424,10 +424,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Beatriz Adriana Hernandez Paredes',
+        'Abimael Ibarra Abundez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -447,10 +447,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Pilar Eduardo Carballo Ruiz',
+        'Jazmin Estrella Ruiz Cota',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -470,10 +470,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Iris Celina Alvarez Banderas',
+        'Yadane Garcia Carrazco',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -493,10 +493,33 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Diego Ivan Mario Rica?o Enciso',
+        'Lugarda Guadalupe Leon Lucero',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
+        'http://www.lapaz.gob.mx',
+        3,
+        3
+      ) ON CONFLICT (
+        nombre_formatted,
+        puesto
+      )
+      DO UPDATE SET img_url = EXCLUDED.img_url;
+              
+
+      insert into presidencia_municipal_simplificado(
+        nombre,
+        puesto,
+        img_url,
+        periodo,
+        link,
+        municipio_id,
+        estado_id
+      ) VALUES (
+        'Estuardo Gonzalez Rodriguez',
+        'Regidores',
+        'https://via.placeholder.com/50',
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.lapaz.gob.mx',
         3,
         3
@@ -515,10 +538,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Arely Arce Peralta',
+        'Paola Margarita Cota Davis',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -538,10 +561,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Lizeth Areane Arce Ojeda',
+        'Anai Guadalupe Romero Arce',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -561,10 +584,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Iran Silverio Rodriguez Martinez',
+        'Delfina Rivas Romero',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -584,10 +607,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Lidia Higuera Amador',
+        'Rosalia Romero Aguilar',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -607,10 +630,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Victor Manuel Delgado Vargas',
+        'Ivan 	 Bautista Saens',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -630,10 +653,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Rosa Carmina Sedano Talamantes',
+        'Francisco Efrain Meza Mayoral',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -653,10 +676,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Reyes Hernandez',
+        'Anastacio Talamantes Davis',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loreto.gob.ec/loreto/',
         5,
         3
@@ -675,10 +698,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jesus Armida Castro Guzman',
+        'Oscar Leggs Castro',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -698,10 +721,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Irene Roman Salgado',
+        'Rogelio Alberto 	 Tornero Carrillo',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -721,10 +744,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Flavio Antonio Olachea Monta?o',
+        'Irene Galindo Román',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -744,10 +767,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Irene Berenice Serrato Flores',
+        'Raymundo Zamora Ceseña',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -767,10 +790,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Hector Torres Tovar',
+        'Lucia Sánchez Juárez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -790,10 +813,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Ana Georgina Roldan Avi?a',
+        'Cristobal Omar Orbe Vargas',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -813,10 +836,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Israel Lopez Martinez',
+        'Guillermina Díaz Rodríguez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -836,10 +859,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Isabel Dolores Teodora Castro Aguirre',
+        'Jose Catarino Flores Castro',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -859,10 +882,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Christian Agundez Gomez',
+        'Sarahi 	 Ramos Murillo',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -882,10 +905,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Julia Maria Rodriguez Ramos',
+        'Rosa Edith Victoria Espinoza',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -905,10 +928,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jorge Armando Lopez Espinoza',
+        'Andrea Patricia 	 Ramirez Hernandez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -928,10 +951,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Tabita Rodriguez Morales',
+        'Roberto Jimenez Moreno',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         'http://www.loscabos.gob.mx',
         4,
         3
@@ -950,10 +973,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Felipe Prado Bautista',
+        'Edith Aguilar Villavicencio',
         'Presidente municipal',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -973,10 +996,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jorge Fausto Gonzalez Mayoral',
+        'Esther Hinojosa Lopez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -996,10 +1019,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Oralia Zu?iga Espinoza',
+        'Isai Bautista Bautista',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1019,10 +1042,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Luis Manuel Talamantes Romero',
+        'Edith Zuñiga Rosas',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1042,10 +1065,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Hiroshima Fuerte Nu?ez',
+        'Luis Sandez Aguilar',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1065,10 +1088,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Jose Ignacio Arce Villegas',
+        'Yahaira Lizbeth Contreras Lopez',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1088,10 +1111,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Zaira Lizette Aviles Cota',
+        'Leon Roberto Lujan Pruitt',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1111,10 +1134,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Miguel Angel Contreras Leyva',
+        'Maria Jesus Ventura Flores',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1134,10 +1157,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Lizbeth Emerita Patron Contreras',
+        'Kassandra Romero Amador',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
@@ -1157,10 +1180,10 @@ exports.seed = async function (knex) {
         municipio_id,
         estado_id
       ) VALUES (
-        'Juan Jesus Osuna Rangel',
+        'Mario Paul Aviles Cota',
         'Regidores',
         'https://via.placeholder.com/50',
-        '[2018-09-27, 2021-09-27)'::daterange,
+        '[2021-09-25, 2024-09-24)'::daterange,
         null,
         2,
         3
