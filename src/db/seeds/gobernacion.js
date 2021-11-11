@@ -10,20 +10,20 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 1, 'https://www.conago.org.mx/m
 from actores_politicos where nombre_formatted = lower(unaccent('C.P. Martín Orozco Sandoval')) and puesto = 'Gubernatura por el estado de AGUASCALIENTES en período [12-01-2016, 09-30-2022]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Ing. Jaime Bonilla Valdez', 'Gubernatura por el estado de BAJA CALIFORNIA en período [11-01-2019, 10-31-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/jaime-bonilla-valdez-baja-california.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Mtra. Marina del Pilar Ávila Olmedo', 'Gubernatura por el estado de BAJA CALIFORNIA en período [11-01-2021, 10-31-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/marina-del-pilar-avila-olmeda.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 2, 'https://www.conago.org.mx/miembros/detalle/Jaime-Bonilla-Valdez'
-from actores_politicos where nombre_formatted = lower(unaccent('Ing. Jaime Bonilla Valdez')) and puesto = 'Gubernatura por el estado de BAJA CALIFORNIA en período [11-01-2019, 10-31-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 2, 'https://www.conago.org.mx/miembros/detalle/Marina-delPilar-Avila-Olmedo'
+from actores_politicos where nombre_formatted = lower(unaccent('Mtra. Marina del Pilar Ávila Olmedo')) and puesto = 'Gubernatura por el estado de BAJA CALIFORNIA en período [11-01-2021, 10-31-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Lic. Víctor Manuel Castro Cosío', 'Gubernatura por el estado de BAJA CALIFORNIA SUR en período [09-10-2021, 09-09-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/victor-castro-cosio.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Mtro. Víctor Manuel Castro Cosío', 'Gubernatura por el estado de BAJA CALIFORNIA SUR en período [09-10-2021, 09-09-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/victor-castro-cosio.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
 select id, '[2021-11-01,2024-09-01)'::daterange, 3, 'https://www.conago.org.mx/miembros/detalle/Victor-Manuel-Castro-Cosio'
-from actores_politicos where nombre_formatted = lower(unaccent('Lic. Víctor Manuel Castro Cosío')) and puesto = 'Gubernatura por el estado de BAJA CALIFORNIA SUR en período [09-10-2021, 09-09-2027]' ON CONFLICT  DO NOTHING;
+from actores_politicos where nombre_formatted = lower(unaccent('Mtro. Víctor Manuel Castro Cosío')) and puesto = 'Gubernatura por el estado de BAJA CALIFORNIA SUR en período [09-10-2021, 09-09-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('Mtra. Layda Elena Sansores San Román', 'Gubernatura por el estado de CAMPECHE en período [09-16-2021, 09-15-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/layda-elena-sansores-san-roman.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -42,12 +42,12 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 5, 'https://www.conago.org.mx/m
 from actores_politicos where nombre_formatted = lower(unaccent('Ing. Miguel Ángel Riquelme Solís')) and puesto = 'Gubernatura por el estado de COAHUILA en período [12-01-2017, 11-30-2023]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Mtro. José Ignacio Peralta Sánchez', 'Gubernatura por el estado de COLIMA en período [02-11-2016, 10-31-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/JoseIgnacioPeraltaSanchez.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Mtra. Indira Vizcaíno Silva', 'Gubernatura por el estado de COLIMA en período [11-01-2021, 10-31-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/indira-vizcaino-silva.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 6, 'https://www.conago.org.mx/miembros/detalle/jose-ignacio-peralta-sanchez'
-from actores_politicos where nombre_formatted = lower(unaccent('Mtro. José Ignacio Peralta Sánchez')) and puesto = 'Gubernatura por el estado de COLIMA en período [02-11-2016, 10-31-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 6, 'https://www.conago.org.mx/miembros/detalle/Indira-Vizcaino-Silva'
+from actores_politicos where nombre_formatted = lower(unaccent('Mtra. Indira Vizcaíno Silva')) and puesto = 'Gubernatura por el estado de COLIMA en período [11-01-2021, 10-31-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('Dr. Rutilio Cruz Escandón Cadenas', 'Gubernatura por el estado de CHIAPAS en período [12-08-2018, 12-07-2024]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/Chiapas_RutilioEscandonCruzCadena.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -90,12 +90,12 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 11, 'https://www.conago.org.mx/
 from actores_politicos where nombre_formatted = lower(unaccent('Lic. Diego Sinhue Rodríguez Vallejo')) and puesto = 'Gubernatura por el estado de GUANAJUATO en período [09-26-2018, 09-25-2024]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Lic. Héctor Antonio Astudillo Flores', 'Gubernatura por el estado de GUERRERO en período [10-27-2015, 10-14-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/HectorAstudilloFlores.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Mtra. Evelyn Cecia Salgado Pineda', 'Gubernatura por el estado de GUERRERO en período [10-15-2021, 10-14-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/evelyn-salgado-pineda.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 12, 'https://www.conago.org.mx/miembros/detalle/hector-antonio-astudillo-flores'
-from actores_politicos where nombre_formatted = lower(unaccent('Lic. Héctor Antonio Astudillo Flores')) and puesto = 'Gubernatura por el estado de GUERRERO en período [10-27-2015, 10-14-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 12, 'https://www.conago.org.mx/miembros/detalle/Evelyn-Cecia-Salgado-Pineda'
+from actores_politicos where nombre_formatted = lower(unaccent('Mtra. Evelyn Cecia Salgado Pineda')) and puesto = 'Gubernatura por el estado de GUERRERO en período [10-15-2021, 10-14-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('Lic. Omar Fayad Meneses', 'Gubernatura por el estado de HIDALGO en período [09-05-2016, 09-04-2022]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/OmarFayadMeneses.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -122,12 +122,12 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 15, 'https://www.conago.org.mx/
 from actores_politicos where nombre_formatted = lower(unaccent('Lic. Alfredo Del Mazo Maza')) and puesto = 'Gubernatura por el estado de MEXICO en período [09-16-2017, 09-15-2023]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Ing. Silvano Aureoles Conejo', 'Gubernatura por el estado de MICHOACAN en período [10-01-2015, 09-30-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/SilvanoAureolesConejo.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Mtro. Alfredo Ramírez Bedolla', 'Gubernatura por el estado de MICHOACAN en período [10-01-2021, 09-30-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/alfredo-ramirez-bedolla.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 16, 'https://www.conago.org.mx/miembros/detalle/silvano-aureoles-conejo'
-from actores_politicos where nombre_formatted = lower(unaccent('Ing. Silvano Aureoles Conejo')) and puesto = 'Gubernatura por el estado de MICHOACAN en período [10-01-2015, 09-30-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 16, 'https://www.conago.org.mx/miembros/detalle/Alfredo-Ramirez-Bedolla'
+from actores_politicos where nombre_formatted = lower(unaccent('Mtro. Alfredo Ramírez Bedolla')) and puesto = 'Gubernatura por el estado de MICHOACAN en período [10-01-2021, 09-30-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('C. Cuauhtémoc Blanco Bravo', 'Gubernatura por el estado de MORELOS en período [10-01-2018, 09-30-2024]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/MOR_CuauhtemocBlancoBravo.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -146,12 +146,12 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 18, 'https://www.conago.org.mx/
 from actores_politicos where nombre_formatted = lower(unaccent('Med. Miguel Ángel Navarro Quintero')) and puesto = 'Gubernatura por el estado de NAYARIT en período [09-19-2021, 09-18-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Ing. Jaime Heliodoro Rodríguez Calderón', 'Gubernatura por el estado de NUEVO LEON en período [07-03-2018, 10-03-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/JaimeHeliodoroRodriguezCalderon.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Dr. Samuel Alejandro García Sepúlveda', 'Gubernatura por el estado de NUEVO LEON en período [10-03-2021, 10-02-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/samuel-alejandro-garcia-sepulveda.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 19, 'https://www.conago.org.mx/miembros/detalle/jaime-rodriguez-calderon'
-from actores_politicos where nombre_formatted = lower(unaccent('Ing. Jaime Heliodoro Rodríguez Calderón')) and puesto = 'Gubernatura por el estado de NUEVO LEON en período [07-03-2018, 10-03-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 19, 'https://www.conago.org.mx/miembros/detalle/Samuel-Alejandro-Garcia-Sepulveda'
+from actores_politicos where nombre_formatted = lower(unaccent('Dr. Samuel Alejandro García Sepúlveda')) and puesto = 'Gubernatura por el estado de NUEVO LEON en período [10-03-2021, 10-02-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('Mtro. Alejandro Ismael Murat Hinojosa', 'Gubernatura por el estado de OAXACA en período [12-01-2016, 11-30-2022]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/AlejandroIsmaelMuratHinojosa.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -170,12 +170,12 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 21, 'https://www.conago.org.mx/
 from actores_politicos where nombre_formatted = lower(unaccent('Lic. Luis Miguel Gerónimo Barbosa Huerta')) and puesto = 'Gubernatura por el estado de PUEBLA en período [08-01-2019, 12-13-2024]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('M.V.Z. Francisco Domínguez Servién', 'Gubernatura por el estado de QUERETARO en período [10-01-2015, 09-30-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/FranciscoDominguezServien.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Lic. Mauricio Kuri González', 'Gubernatura por el estado de QUERETARO en período [10-01-2021, 09-30-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/mauricio-kuri-gonzalez.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 22, 'https://www.conago.org.mx/miembros/detalle/francisco-dominguez-servien'
-from actores_politicos where nombre_formatted = lower(unaccent('M.V.Z. Francisco Domínguez Servién')) and puesto = 'Gubernatura por el estado de QUERETARO en período [10-01-2015, 09-30-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 22, 'https://www.conago.org.mx/miembros/detalle/Mauricio-Kuri-Gonzalez'
+from actores_politicos where nombre_formatted = lower(unaccent('Lic. Mauricio Kuri González')) and puesto = 'Gubernatura por el estado de QUERETARO en período [10-01-2021, 09-30-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('C.P. Carlos Manuel Joaquín González', 'Gubernatura por el estado de QUINTANA ROO en período [09-25-2016, 09-24-2022]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/CarlosManuelJoaquinGonzalez.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
@@ -186,20 +186,20 @@ select id, '[2021-11-01,2024-09-01)'::daterange, 23, 'https://www.conago.org.mx/
 from actores_politicos where nombre_formatted = lower(unaccent('C.P. Carlos Manuel Joaquín González')) and puesto = 'Gubernatura por el estado de QUINTANA ROO en período [09-25-2016, 09-24-2022]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Dr. Juan Manuel Carreras López', 'Gubernatura por el estado de SAN LUIS POTOSI en período [09-26-2015, 09-25-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/JuanManuelCarrerasLopez.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Lic. José Ricardo Gallardo Cardona', 'Gubernatura por el estado de SAN LUIS POTOSI en período [09-26-2021, 09-25-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/jose-ricardo-gallardo-cardona.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 24, 'https://www.conago.org.mx/miembros/detalle/juan-manuel-carreras-lopez'
-from actores_politicos where nombre_formatted = lower(unaccent('Dr. Juan Manuel Carreras López')) and puesto = 'Gubernatura por el estado de SAN LUIS POTOSI en período [09-26-2015, 09-25-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 24, 'https://www.conago.org.mx/miembros/detalle/Jose-Ricardo-Gallardo-Cardona'
+from actores_politicos where nombre_formatted = lower(unaccent('Lic. José Ricardo Gallardo Cardona')) and puesto = 'Gubernatura por el estado de SAN LUIS POTOSI en período [09-26-2021, 09-25-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
-values ('Mtro. Quirino Ordaz Coppel', 'Gubernatura por el estado de SINALOA en período [01-01-2017, 10-31-2021]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/QuirinoOrdazCoppel.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
+values ('Dr. Rubén Rocha Moya', 'Gubernatura por el estado de SINALOA en período [11-01-2021, 10-31-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/ruben-rocha-moya.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
 DO UPDATE SET img_url = EXCLUDED.img_url;
 
 insert into gobernacion(actor_politico_id, periodo, estado, link)
-select id, '[2021-11-01,2024-09-01)'::daterange, 25, 'https://www.conago.org.mx/miembros/detalle/quirino-ordaz-coppel'
-from actores_politicos where nombre_formatted = lower(unaccent('Mtro. Quirino Ordaz Coppel')) and puesto = 'Gubernatura por el estado de SINALOA en período [01-01-2017, 10-31-2021]' ON CONFLICT  DO NOTHING;
+select id, '[2021-11-01,2024-09-01)'::daterange, 25, 'https://www.conago.org.mx/miembros/detalle/Ruben-Rocha-Moya'
+from actores_politicos where nombre_formatted = lower(unaccent('Dr. Rubén Rocha Moya')) and puesto = 'Gubernatura por el estado de SINALOA en período [11-01-2021, 10-31-2027]' ON CONFLICT  DO NOTHING;
 
 insert into actores_politicos (nombre, puesto, img_url, created_at) 
 values ('Dr. Francisco Alfonso Durazo Montaño', 'Gubernatura por el estado de SONORA en período [09-13-2021, 09-12-2027]', 'https://envios.conago.org.mx/uploads/imagenes/gobernadores/alfonso-durazo-montano.jpg', '2021-04-29 13:00:00') ON CONFLICT (nombre_formatted, puesto) 
